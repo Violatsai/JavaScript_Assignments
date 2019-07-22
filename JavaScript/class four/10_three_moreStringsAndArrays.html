@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>More strings and arrays</title>
+    <script>
+        function stringToArray(string){
+            
+            document.getElementById("output").innerHTML = "I'm starting with this string:<br>" + string + "<br>";
+            
+            var arrayOfStrings = string.split(" ");
+            
+            document.getElementById("output").innerHTML += "And I'm winding up with:<br>" + arrayOfStrings;
+            
+            oneWordPerLine(arrayOfStrings);
+
+        }
+        
+        function oneWordPerLine(array){
+            //  And this little function spits out one word per line...
+            var output = "";
+            for ( i=0 ; i < array.length ; i++ ){
+                output = output + array[i] + "<br>";
+            }
+            
+            document.getElementById("output").innerHTML += "And this is that same array broken up:<br>" + output;
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+        
+    </script>
+    <p id="instructions">Hey there, this little program will ask you for a some text and break it into individual words by converting your string into an array of strings</p>
+    <p>Enter Text: <input id="input" value="I am some default text for you to look at" size=50></p>
+    <button onclick="stringToArray(input.value)">Yeah, click me</button>
+    <p id="output"></p>
+</body>
+</html>

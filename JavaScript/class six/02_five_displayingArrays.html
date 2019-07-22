@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome (back) to Arrays</title>
+    <script>
+        function arrayContents( someArray ){
+            //  Let's whip up a little function that will always spit out the contents of any array.
+            //  Once we know this is working, we can reuse it in all our other programs.
+            var output = "";
+            for ( i=0 ;  i < someArray.length ; i++ ){
+                output += someArray[i] + "<br>";
+            }
+            return output;
+        }
+    </script>
+
+</head>
+<body>
+    
+    <script>
+        //  Let's create an order for tonight's dinner and then display it.
+        
+        //  How do we define and populate an array again...?
+        var dinner = new Array ("pizza", "sushi", "BBQ pork fried rice", "tacos", "pad thai", "ice cream", "brownies");
+
+        document.write("What did you want for dinner tonight?<br>");
+        
+        document.write( arrayContents (dinner));
+    </script>
+
+</body>
+</html>

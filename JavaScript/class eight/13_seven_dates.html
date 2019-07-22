@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I need a date...</title>
+    <script>
+        function now(){
+            var now = new Date();
+            var nowYear = now.getFullYear();
+            var nowMonth = now.getMonth() + 1;  // cuz months for javaScript are zero-indexed!
+            var nowDate = now.getDate();
+//            alert(year + " and " + month + " and " + date);
+//            alert(nowYear + " and " + nowMonth + " and " + nowDate);
+        
+            var age = 0;
+            if ( nowMonth > month ) {
+                age = nowYear - year;
+            } else if ( ( nowMonth == month ) && ( nowDate >= date ) ){
+                age = nowYear - year;
+            } else {
+                age = nowYear - year -1;
+            }
+            document.getElementById("year").innerHTML += nowYear;
+            document.getElementById("month").innerHTML += nowMonth;
+            document.getElementById("date").innerHTML += nowDate;
+        }     
+
+    </script>
+</head>
+
+<body>
+        
+    <h1 id="header">Let's talk about dates in javaScript, okay?</h1>
+    <p id="intro">Today's date is:</p>
+    <button id="dateButton" onclick="now()">What's the current date?</button>
+    <p id="year">Year: </p>
+    <p id="month">Month: </p>
+    <p id="date">Day: </p>
+        
+</body>
+</html>

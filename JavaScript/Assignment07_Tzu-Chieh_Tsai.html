@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta charset="UTF-8">
+    <!-- Name: Tzu-Chieh(Viola) Tsai -->
+    <!-- Section number: A -->
+    <style>
+        body { font-family: Times, Courier New, Georgia, serif; font-size: 14pt; background-color: aliceblue;padding-left: 20pt; padding-right: 20pt; padding-top: 2pt; padding-bottom: 50pt}
+        form { font-family: Papyrus, Courier New, Georgia, serif; color: seagreen; background-color: lightblue; padding-left: 10pt; padding-right: 10pt; padding-top: 10pt; padding-bottom: 15pt}
+        legend { font-family: fantasy; font-size: 16pt; color: lightseagreen}
+        .button { margin: 5pt; padding: 10pt; padding-bottom: 5pt; border-radius: 10pt; font-family: fantasy; font-size: 16pt; color: lightseagreen; background-color: aliceblue}
+        .output { font-family: monospace; font-size: 14pt; padding-left: 10pt; padding-right: 20pt; padding-top: 5pt; padding-bottom: 5pt; color: cadetblue; background-color: lightsteelblue}
+    </style>
+    <script src="airport.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <script>
+        //  Gather the customer's data and present it onscreen
+        function displayData(firstName, lastName, bday, gender,destination){
+                var userOutput = "";
+                var greeting = userGender(gender);
+                var travelDayList =[]
+                var checkboxSetting = document.getElementsByName("travelDay");
+                for (i = 0; i < checkboxSetting.length; i++) {
+                if (checkboxSetting[i].checked) {
+                    travelDayList.push(Number(checkboxSetting[i].value));
+                }
+                }    
+                   
+                userOutput = "Flights for " + greeting + firstName + " " + lastName + ", age: " + howOld(bday) + " from " + "Monterey, California to " + destination +"<br><br>";       //  But we never checked the validity of the departure city...
+                document.getElementById("userData").innerHTML = userOutput;
+                document.getElementById("flightData").innerHTML = "";
+                document.getElementById("userData").className = document.getElementById("flightData").className = "output";
+            
+                for (i=0; i<travelDayList.length;i++){
+                    travelDay = travelDayList[i];
+                    rawData = lookup(destination, travelDay);
+                    splitDataList = rawData.split("©");
+                    flight = splitDataList[0];
+                    date = splitDataList[1];
+                    departureTime = splitDataList[2];
+                    arrivalTime = splitDataList[3];
+                    price = splitDataList[4];
+                    document.getElementById("flightData").innerHTML += "Flight: "+ flight+" departing on "+ date + " at " +departureTime + " and arriving in " + destination + " at " + arrivalTime + " for " + price +" USD <br>";
+                    
+                }
+
+                }
+                            
+        
+
+            
+        //  Choose an appropriate greeting, based on the user's gender
+        function userGender(input){
+            switch(input){
+                case "male": return "Mr. "; break;
+                case "female": return "Ms. "; break;
+                default: return ""; break;
+            }
+        }
+        
+        function howOld(bday){
+        var stringOfDate = bday.split("-")
+        var birthYear = Number(stringOfDate[0]);
+        var now = new Date();
+        var nowYear = now.getFullYear();
+        var age = 0;
+        age = nowYear - birthYear;
+        return age;}
+        
+    </script>
+
+	<form action="#" id="traveler" autocomplete="on">  
+	<fieldset>
+        <legend> Traveler Info </legend>
+        <label>First Name: <input type="text" name="firstName" value="Harry"></label><br>
+        <label>Last Name: <input type="text" name="lastName" value="Potter"></label><br>
+        <label>Birthday: <input type="date" name="bday"></label>
+
+        <legend>Gender:</legend>
+        <div id="gender" class=gender>
+            <input type="radio" name="gender" id="M" value="male"> Male<br>
+            <input type="radio" name="gender" id="F" value="female"> Female <br>
+            <input type="radio" name="gender" id="O" value="other"> Other<br>
+            <input type="radio" name="gender" id="X" value="decline" checked> Decline to State<br>
+        </div>
+    </fieldset>    
+    <fieldset>
+        <legend>Travel Destinations and Days</legend>
+        <select id="destination">
+        <option value="New York City">New York City</option>
+        <option value="Honolulu">Honolulu</option>
+        <option value="Hong Kong">Hong Kong</option>
+        <option value="Beijing">Beijing</option>
+        <option value="Tokyo">Tokyo</option>
+        <option value="Ulaanbaatar">Ulaanbaatar</option>
+        <option value="London">London</option>
+        </select>
+        <br>
+        
+        <div id="travelDay" name="travelDay" class=travelDay>
+            <input type="checkbox" name="travelDay" id="Sun" value=0> Sunday <br>
+            <input type="checkbox" name="travelDay" id="Mon" value=1> Monday <br>
+            <input type="checkbox" name="travelDay" id="Tue" value=2> Tuesday <br>
+            <input type="checkbox" name="travelDay" id="Wed" value=3> Wednesday <br>
+            <input type="checkbox" name="travelDay" id="Thu" value=4> Thursday <br>
+            <input type="checkbox" name="travelDay" id="Fri" value=5> Friday <br>
+            <input type="checkbox" name="travelDay" id="Sat" value=6> Saturday <br>
+        </div>
+        
+        
+    </fieldset>
+        
+    <input type="button" value= "Submit (locally)" onclick="displayData(firstName.value, lastName.value, bday.value, gender.value,destination.value)" class=button>
+        
+    <input type="reset" value="Reset to Default">
+
+   
+    </form>
+    <fieldset>
+    	<legend>Traveller and Travel Data</legend>
+        <div id="userData" class=output>
+        <br><br>
+        </div>
+        <div id="flightData" class=output>
+        <br><br>
+        </div>
+	</fieldset>
+
+</body>
+</html>

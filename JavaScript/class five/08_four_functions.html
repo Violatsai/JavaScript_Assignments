@@ -1,0 +1,33 @@
+<!DOCKTYPE html>
+<html>
+    <head>
+        <title>Wow, this Functions</title>
+        <script>
+            function greetings( name, sex ){
+                switch (sex){
+                    case "male":
+                        document.write("Hello, Mr. " + name);
+                        break;
+                    case "female":
+                        document.write("Hello, Ms. " + name);
+                        break;
+                    default:
+                        document.write("Hello, " + name);
+                        break;
+                }
+            }
+            
+        </script>
+    </head>
+    <body>
+        <script>
+            var userName = prompt("What's your name?");
+            var userSex = prompt("What's your sex?");
+                while ( ( userSex != "male" ) && ( userSex != "female") && ( userSex != "non-binary") ){
+                    userSex = prompt("What's your sex?  Please answer 'male' or 'female' or 'non-binary'");
+                }
+            greetings( userName, userSex);
+        </script>
+
+    </body>
+</html>

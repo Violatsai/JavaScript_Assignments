@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>How many JavaScript coders does it take...</title>
+    </head>
+    <body>
+        <script>
+            var count = 0;
+            
+            function up(){
+                count++;
+                document.getElementById("theCount").innerHTML = count;
+            }
+            
+            function down(){
+                count--;
+                document.getElementById("theCount").innerHTML = count;
+            }
+        </script>
+        <h2>Put your cursor over the up arrow to increase the count</h2>
+        <p>Current count: <span id="theCount">0</span></p>
+        <img src="up.jpg" onmouseover="up()">
+        <img src="down.jpg" onmouseover="down()">
+    </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Object of our Attention is Humanity's Best Friend</title>
+    <script>
+        function outputObject(myPet){
+            var output = "";
+            for ( var property in myPet ){
+                if ( myPet.hasOwnProperty( property ) ){
+                    output += property + ": " + myPet[property] + "<br>";
+                }
+            }
+            document.getElementById("yourPooch").innerHTML = output + "<br>";
+        }
+        
+        function outputProperty(myPet, property){
+            var output = "";
+            if ( myPet.hasOwnProperty( property ) ){
+                output += property + ": " + myPet[property] + "<br>";
+            }
+            document.getElementById("yourPooch").innerHTML = output + "<br>";
+        }
+        
+    </script>
+</head>    
+    
+<body>
+    
+    <script>
+        var myPooch = {
+            name:"Brody",
+            breed:"Pitbull", 
+            size:"85 lbs", 
+            color:"White with brown spots", 
+            age:"9 and a half years", 
+            training:"Basic voice commands", 
+            sitUp: function(){
+                document.getElementById("Brody").src="upBrody.jpg"
+            },
+            lieDown: function(){
+                document.getElementById("Brody").src="downBrody.jpg"
+            },
+            goSwim: function(){
+                document.getElementById("Brody").src="swimBrody.jpg"
+            }
+        }        
+    </script>
+
+    <h2>Let's talk about your pooch...</h2>
+    <p id="yourPooch">        </p>
+    <button onclick="outputProperty(myPooch,'name')">What's your name?</button>
+    <button onclick="outputProperty(myPooch,'breed')">What's your breed?</button>
+    <button onclick="myPooch.sitUp()">Sit Up, Brody</button>
+    <button onclick="myPooch.lieDown()">Lie Down, Brody</button>
+    <button onclick="myPooch.goSwim()">Dive, Brody, Dive!</button>
+    <br>
+    <img id="Brody" src="white.jpg">
+
+</body>
+</html>

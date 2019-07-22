@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I suppose it's time to get Formal</title>
+    <style>
+        form {padding: 10px; font: lust script, minion pro, sans-serif; font-size: 14pt; line-height: 24pt; background-color: azure}
+        p {padding: 10px; font: minion pro, lust script, sans-serif; font-size: 20pt; line-height: 20pt; color: floralwhite; background-color: crimson}
+        div {margin-left: 10px; font: tahoma, serif; font-style: italic; font-size: 16pt; color: blue; line-height: 24pt; background-color: chartreuse}
+        .today {font-size: 12pt; line-height: 18pt; background-color: cornsilk}
+        .output {margin-left: 10px; font: tahoma, serif; font-style: italic; font-size: 16pt; color: blue; line-height: 24pt}
+    </style>
+</head>
+<body>
+
+    <form action="#" name="defineMe" autocomplete="off">        
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" id="firstName" value="Luciana"><br>        
+    <label>Last Name: <input type="text" name="lastName" value="Poopie-Pants"></label><br>
+    <label>Age: <input type="number" name="age" value=3></label><br>
+    What's your favorite color? <input type="color" name="pretty" value="#ffb6c1"><br>
+    <!-- that color is 'light pink' -- see words are better! -->
+    <fieldset>
+        <legend>Today I...</legend>
+        <div id="todayList" class=today>
+            <input type="checkbox" name="today" id="shower"> Took a Shower<br>
+            <input type="checkbox" name="today" id="pooped"> Asked to go potty<br>
+            <input type="checkbox" name="today" id="talked"> Told Daddy a story<br>
+            <input type="checkbox" name="today" id="story"> Asked for a bedtime story<br>
+            <input type="checkbox" name="today" id="tv" checked> Asked to watch Ariel, Barbie, or Moana AGAIN<br>
+        </div>
+    </fieldset>
+     
+    <br>
+        <legend>Today I've Been...</legend>
+        <input type="radio" name="behave" id="sweet" value="sweet"> Super Sweet<br>
+        <input type="radio" name="behave" id="nice" value="nice"> Nice<br>
+        <input type="radio" name="behave" id="ok" value="ok"> Average<br>
+        <input type="radio" name="behave" id="naughty" value="naughty"> Naughty<br>
+        <input type="radio" name="behave" id="bad" value="bad"> Will Santa Really Bring Me Coal?<br>
+        <input type="button" value="Submit (locally)" onclick="display(firstName.value, lastName.value, age.value, pretty.value)">
+    </form>
+    
+    <div id="reportMe"></div>
+      
+    <script>
+        function display(first, last, age, pretty){
+            document.body.style.backgroundColor = pretty; 
+            document.getElementById("reportMe").innerHTML = "<br>Your name is " + first + " " + last + " and you are " + age + " years old.<br>";
+            document.getElementById("reportMe").setAttribute("class","output");  
+            
+            var todayActivities = 0;
+            todayActivities = moreFormData();
+            var newText = "";
+            if ( todayActivities == 5 ){
+                newText = "You had a typical day!";
+            } else if ( todayActivities == 0 ){
+                newText = "Uh, are you feeling okay?  You must still be sleeping!";
+            } else {
+                newText = "How unusual, you only did " + todayActivities + " of the things you normally do...";
+            }
+            document.getElementById("reportMe").innerHTML = document.getElementById("reportMe").innerHTML + newText;
+            
+            var todayBehave = "";
+            var radioSetting = document.getElementsByName("behave");
+            for (i = 0; i < radioSetting.length; i++) {
+                if (radioSetting[i].checked) {
+                    todayBehave = radioSetting[i].value;
+                }
+            }
+            addImage(todayBehave);
+        }
+        
+        function moreFormData(){
+            var count = 0;
+            var test = document.getElementById("shower");
+            var temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("pooped");
+            temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("talked");
+            temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("story");
+            temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("tv");
+            temp = test.checked;
+            count = count + temp;
+            return count;
+        }
+        
+        function addImage(result){
+            var color = "";
+            switch(result){
+                case "sweet": color = "white"; break;
+                case "nice": color = "deeppink"; break;
+                case "ok":  color = "green"; break;
+                case "naughty": color = "brown"; break;
+                case "bad": color = "red"; break;
+                default: color = "black";
+            }
+            document.getElementById("reportMe").style.color = color;
+        }
+
+    </script>
+
+</body>
+</html>

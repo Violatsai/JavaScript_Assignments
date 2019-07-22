@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I suppose it's time to get Formal</title>
+    <style>
+        form {padding: 10px; font: lust script, minion pro, sans-serif; font-size: 14pt; line-height: 24pt; background-color: azure}
+        p {padding: 10px; font: minion pro, lust script, sans-serif; font-size: 20pt; line-height: 20pt; color: floralwhite; background-color: crimson}
+        div {margin-left: 10px; font: tahoma, serif; font-style: italic; font-size: 16pt; color: blue; line-height: 24pt; background-color: turquoise}
+        .today {font-size: 12pt; line-height: 18pt; background-color: cornsilk}
+    </style>
+</head>
+<body>
+
+    <form action="#" name="defineMe" autocomplete="off">        
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" id="firstName" value="Luciana"><br>        
+    <label>Last Name: <input type="text" name="lastName" value="Poopie-Pants"></label><br>
+    <label>Age: <input type="number" name="age" value=2></label><br>
+    
+    What's your favorite color? <input type="color" name="pretty" value="#ffb6c1"><br>
+    <!-- that color is 'light pink' -- see words are better! -->
+    <fieldset>
+        <legend>Today I...</legend>
+        <div id="todayList" class=today>
+            <input type="checkbox" name="today" id="shower"> Took a Shower<br>
+            <input type="checkbox" name="today" id="pooped"> Asked to go potty<br>
+            <input type="checkbox" name="today" id="talked"> Told Daddy a story<br>
+            <input type="checkbox" name="today" id="story"> Asked for a bedtime story<br>
+            <input type="checkbox" name="today" id="tv" checked> Asked to watch Ariel, Barbie, or Moana AGAIN<br>
+        </div>
+    </fieldset>
+    
+    <fieldset>
+    <legend>Today I've Been...</legend>
+    <div id="behave" class="today">
+    <select>
+        <option>(pick one)</option>
+        <option value="sweet">Super Sweet</option>
+        <option value="nice">Nice</option>
+        <option value="ok">Average</option>
+        <option value="naughty">Naughty</option>
+        <option value="bad">Will Santa Really Bring Me Coal?</option>
+    </select>
+    </div>
+    </fieldset>
+    <br>
+        
+    <input type="button" value="Submit (locally)" onclick="display(firstName.value, lastName.value, age.value, pretty.value)">
+    </form>
+    
+    <div id="output"></div>
+      
+    <script>
+        function display(first, last, age, pretty){
+            document.body.style.backgroundColor = pretty; 
+            document.getElementById("output").innerHTML = "<br>Your name is " + first + " " + last + " and you are " + age + " years old.<br>";
+            document.getElementById("output").setAttribute("class","output");  // oh, that's how!
+            
+            var todayActivities = 0;
+            todayActivities = moreFormData();
+            var newElement = document.createElement("div");
+            newElement.setAttribute("id","moreMe");
+            newElement.setAttribute("class","output");   // but how do I fix the first line of text...?
+            var newText = "";
+            if ( todayActivities == 5 ){
+                newText = "You had a typical day!";
+            } else if ( todayActivities == 0 ){
+                newText = "Uh, are you feeling okay?  You must still be sleeping!";
+            } else {
+                newText = "How unusual, you only did " + todayActivities + " of the things you normally do...";
+            }
+            newElement.appendChild( document.createTextNode(newText) );
+            document.body.append(newElement);
+            
+            var todayBehave = document.getElementById("behave").value;
+            addImage(todayBehave);
+        }
+        
+        function moreFormData(){
+            var count = 0;
+            var test = document.getElementById("shower");
+            var temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("pooped");
+            temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("talked");
+            temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("story");
+            temp = test.checked;
+            count = count + temp;
+            test = document.getElementById("tv");
+            temp = test.checked;
+            count = count + temp;
+            return count;
+        }
+        
+        function addImage(result){
+            var color = "";
+            switch(result){
+                case "sweet": color = "white"; break;
+                case "nice": color = "deeppink"; break;
+                case "ok":  color = "green"; break;
+                case "naughty": color = "brown"; break;
+                case "bad": color = "red"; break;
+                default: color = "black";
+            }
+            document.getElementById("output").style.color = color;
+            document.getElementById("moreMe").style.color = color;
+
+        }
+
+    </script>
+
+</body>
+</html>

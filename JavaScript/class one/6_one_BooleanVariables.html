@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Was George Boole really a vulcan?</title>
+</head>
+<body>   
+    <script>
+        var words = "This is bad.";
+        
+        function badCode(){
+            alert("I'm going to show you some bad code.  " + words);
+        }
+        
+        function worseCode(){
+            words = "This would cause a bug in real life...";
+            alert("Now this is even worse.  " + words);
+        }
+        
+        var test = 1;
+        alert("The value of test is " + test);
+
+        var newTest = Boolean(test);        
+        alert("The value of newTest is " + newTest);
+        
+        if ( newTest ){
+            badCode();
+        }
+        
+        if ( Boolean(test) ){
+            worseCode();
+        }
+        
+        if ( Boolean( 5 > 2) ){
+            alert("But it works without variables...");
+        }
+        
+        var badAtMath = test + newTest;
+        alert("Yeah, JavaScript tries really hard to think for you, cuz the sum is " + badAtMath);
+        
+    </script>
+</body>
+</html>

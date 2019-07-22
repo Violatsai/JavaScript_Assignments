@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Let's explore the Second Dimension</title>
+</head>
+<body>
+    <script>
+    //  THIS is how you SHOULD define multi-dimensional arrays!
+    //  Keep all this in mind when we talk about prototyping in a few weeks...
+        var foodOrder = [];
+        foodOrder[0] = ["David","BBQ pork fried rice","Dumplings in hot oil","Ming Beef","Taco Salad"];
+        foodOrder[1] = ["Pablo","Milanesa","Mashed potatoes","Matambre"];
+        foodOrder[2] = ["Luciana","Uvas","Fresas"];
+
+        var fullOrder = foodOrder.join();
+        alert("The full order is:" + fullOrder);
+        var fullOrder = foodOrder.toString();
+        alert("The full order is:" + fullOrder);
+    </script>
+
+</body>
+</html>

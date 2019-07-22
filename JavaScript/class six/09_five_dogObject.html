@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Object of our Attention is Humanity's Best Friend</title>
+    <script>
+        function outputObject(myPet){
+            var output = "";
+            output += myPet.name + "<br>";
+            output += myPet.breed + "<br>";
+            output += myPet.size + "<br>";
+            output += myPet.color + "<br>";
+            output += myPet.age + "<br>";
+            output += myPet.training + "<br>";
+            document.getElementById("yourPooch").innerHTML = output + "<br>";
+        }
+        
+        function outputProperty(myPet){
+            var output = "";
+            output += myPet + "<br>";
+            document.getElementById("yourPooch").innerHTML = output + "<br>";
+        }
+        
+    </script>
+</head>    
+    
+<body>
+    
+    <script>
+        var myPooch = {name:"Brody", breed:"Pitbull", size:"85 lbs", color:"White with brown spots", age:"9 and a half years", training:"Basic voice commands"}        
+    </script>
+
+    <h2>Let's talk about your pooch...</h2>
+    <p id="yourPooch"></p>
+    <button onclick="outputObject(myPooch)">Tell me!</button>
+    <button onclick="outputProperty(myPooch.name)">What the Name?</button>
+    <button onclick="outputProperty(myPooch.color)">What Color?</button>
+    <button onclick="outputProperty(myPooch.age)">How Old?</button>
+
+</body>
+</html>

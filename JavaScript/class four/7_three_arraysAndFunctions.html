@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Let's continue to explore the Second Dimension</title>
+    <script>
+        //  This is how you use a function with an array.
+        //  Watch out for the scope of your variables...!!!
+        function gimmeFood(someArray){
+            alert(someArray);
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+    //  THIS is how you SHOULD define multi-dimensional arrays!
+        var foodOrder = [];
+        foodOrder[0] = ["David","BBQ pork fried rice","Dumplings in hot oil","Ming Beef","Taco Salad"];
+        foodOrder[1] = ["Pablo","Milanesa","Mashed potatoes","Matambre"];
+        foodOrder[2] = ["Luciana","Uvas","Fresas"];
+
+        gimmeFood(foodOrder);
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>                      
+        .columns {         /* Wow, could this be some CSS, to make things pretty? */
+            -webkit-column-count: 2;/* Chrome, Safari, Opera */
+            -moz-column-count: 2;   /* Firefox */
+            column-count: 2;
+        }                           /* Why is this so ugly this time...? */
+    </style>
+</head>
+<body>
+    <div class="columns">      <!-- What do you think this does? -->
+        <script>
+            document.write ("Browser's default language: <br>" + navigator.language + "<br>");
+            document.write ("Browser's preferred languages: <br>" + navigator.languages + "<br>");
+  		</script>
+    </div> 
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Name: Tzu-Chieh(Viola) Tsai -->
+    <!-- Section number: A -->
+    <title>What's your sign?</title>
+    <script>
+        
+        function greeting (firstName, lastName){
+        var salutation = "Hello, there, " + firstName + " " + lastName;    
+        document.getElementById("greeting").innerHTML = salutation;
+        }
+        
+        function howOld(year, month, day){
+        var birthYear = Number(year);
+        var now = new Date();
+        var nowYear = now.getFullYear();
+        var nowMonth = now.getMonth() + 1;  // cuz months for javaScript are zero-indexed!
+        var nowDate = now.getDate();
+        var age = 0;
+        if ( nowMonth > month ) {
+            age = nowYear - birthYear;
+        } else if ( ( nowMonth == month ) && ( nowDate >= day ) ){
+            age = nowYear - birthYear;
+        } else {
+            age = nowYear - birthYear -1;
+        }
+        var statement = "You are " + age.toString() + " years old";
+        document.getElementById("age").innerHTML = statement;
+        
+        if ((month == 3 && day >=21) || (month == 4 && day <= 19)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Aries";
+            } else if ((month == 4 && day >=20) || (month == 5 && day <= 20)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Taurus";
+            } else if ((month == 5 && day >=21) || (month == 6 && day <= 20)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Gemini";
+            } else if ((month == 6 && day >=21) || (month == 7 && day <= 22)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Cancer";
+            } else if ((month == 7 && day >=23) || (month == 8 && day <= 22)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Leo";
+            } else if ((month == 8 && day >=23) || (month == 9 && day <= 22)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Virgo";
+            } else if ((month == 9 && day >=23) || (month == 10 && day <= 22)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Libra";
+            } else if ((month == 10 && day >=23) || (month == 11 && day <= 21)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Scorpio";
+            } else if ((month == 11 && day >=22) || (month == 12 && day <= 21)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Sagittarius";
+            } else if ((month == 12 && day >=22) || (month == 1 && day <= 19)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Capricorn";
+            } else if ((month == 1 && day >=20) || (month == 2 && day <= 18)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Aquarius";
+            } else if ((month == 2 && day >=19) || (month == 3 && day <= 20)){
+            document.getElementById("zodiacSign").innerHTML = "Based on your birthday, your zodiac sign is Pisces";
+            } else{
+            document.getElementById("zodiacSign").innerHTML = "Sorry. We cannot find your zodiac sign.";
+            }
+        }
+        
+        
+
+    </script>
+</head>
+
+<body>
+    <h1 id="intro">Tell me a little bit about yourself!</h1>
+    <h3 id="name">What's your name?</h3>
+    <p id="firstName">First Name: <input id="first" value="first name"></p>
+    <p id="lastName">Last Name: <input id="last" value="last name"></p>
+    <p id="greeting"></p>
+    <button id="greeting" onclick="greeting(first.value, last.value)">Greetings!</button>
+ 
+    <h3 id="birthday">When's your birthday?</h3>
+    <p id="yearP">Year: <input id="year" value=""></p>
+    <p id="monthP">Month: <input id="month" value=""></p>
+    <p id="dayP">Day: <input id="day" value=""></p>
+    <p id="age"></p>
+    <button id="calculate" onclick="howOld(year.value, month.value, day.value)">Calculate</button>
+    <p id="zodiacSign"></p>
+</body>
+</html>

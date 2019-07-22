@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Name: Tzu-Chieh(Viola) Tsai -->
+<!-- Section number: A -->
+    <script>
+        function arrayContents( someArray ){
+            var output = "";
+            for ( i=0 ;  i < someArray.length ; i++ ){
+                output += someArray[i] + "<br>";
+            }
+            document.getElementById("foodOrder").innerHTML = output;
+        }
+        
+        function addToOrder( additionalString, someArray ){
+
+            someArray.push( additionalString );
+            
+            arrayContents( someArray );
+        }
+        
+        function removeOrder ( searchString, someArray ){
+            var where = -1;
+            var found = false;
+            for ( i=0 ;  i < someArray.length ; i++ ){
+                if ( someArray.indexOf ( searchString ) != -1 ){
+                    // element doesn't exist in array
+                    where = someArray.indexOf ( searchString );
+                    found = true;
+                }
+            }
+            if ( found ) {
+                someArray.splice(where,1);
+                arrayContents(someArray);
+            } else {
+                document.getElementById("foodOrder").innerHTML += "<br><br>Your item " + searchString + " is NOT in your order";
+            }
+        }
+    </script>
+
+</head>
+<body>
+        
+    <p>Enter your food order here: <input id="input"></p>
+    <button onclick="addToOrder( input.value, dinner )">Add to Your Order</button>
+    <button onclick="removeOrder( input.value, dinner )">Remove from Your Order</button>
+    <p id="foodOrder"></p>
+
+    <script>
+        //  Let's create an order for tonight's dinner and then display it.
+        
+        //  How do we define and populate an array again...?
+        var dinner = new Array ("pizza", "sushi", "tacos", "pad thai", "ice cream", "brownies");
+
+        document.write("What do you want for dinner tonight?<br>");
+        
+        arrayContents( dinner );
+    </script>
+</body>
+</html>

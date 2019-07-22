@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome back to Arrays</title>
+</head>
+<body>
+    
+    <script>
+        var disney = new Array ("Mulan", "Moana", "Frozen", "Zootopia", "Aladdin", "Lilo and Stitch", "Little Mermaid", "Monsters Inc", "Beauty and the Beast", "The Incredibles", "Hercules", "Up");
+
+        document.write("Which Disney movies are in your collection?<br>");
+        
+        var output = "1 " + disney[0] + "<br>";
+        for ( i = 1 ; i < disney.length ; i++){
+            output += i+1 + " " + disney[i] + "<br>";
+        }
+        
+        document.write(output);
+  
+        //  Didn't work, hunh?  Yeah, I know...
+        //  Remember, I told you that document.write has the finese of a sledge-hammer...?
+        //  The problem is that the alerts happen before document.write has managed to update the screen.
+        var whichMovie = prompt("Which film would you like?");
+        alert("Very well, here's " + disney[Number(whichMovie)-1]);
+        //  Don't worry, we'll come back to this once we learn a little about functions and HTML..today...
+    </script>
+
+</body>
+</html>

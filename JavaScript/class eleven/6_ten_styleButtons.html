@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+		<title>Loco for localization</title>
+		 <script>
+		 	function german(){
+		 		document.getElementById("title").innerHTML = "Mohr Travel_äöüßÄÖÜ";
+		 		document.getElementById("byLine").innerHTML = "Wer möchte nicht reisen Mohr?";
+		 		document.getElementById("greeting").innerHTML = "Hallo, Carmen Sandiego!";
+		 		document.getElementById('currentTrips').innerHTML = "San Francisco nach Peking <br>" + "Paris nach Buenos Aires<br>" + " Delhi nach Kairo";
+                
+                var newElement = document.createElement("p");
+                var newMessage = document.createTextNode("Nur von Deutschland...!   Hamburg nach Wein");
+                newElement.setAttribute("id","message2");
+                newElement.appendChild(newMessage);
+                document.body.append(newElement);
+		 		document.getElementById("message2").className = "special";
+		 		document.getElementById("message2").style.background = "blue";
+
+//                var newElement = '<p id="specials">Es gibt das nur auf Deutsch...!</p>';
+//                var bodyElement = document.getElementById("greeting");
+//                bodyElement.innerHTML = bodyElement.innerHTML + newElement;
+		 		document.getElementById("EnglishButton").innerHTML = "Englisch";
+		 		document.getElementById("EnglishButton").className = "buttonOff";
+		 		document.getElementById("GermanButton").innerHTML = "Deutsch";
+		 		document.getElementById("GermanButton").className = "buttonOn";
+		 	}
+		 	function english(){
+                window.history.go(0);
+		 	}
+		 	function pickLang(flag){
+		 		if ( flag != 'en') {
+		 			var languages = navigator.languages;
+		 			if ( languages.includes("de")) {
+		 				german();
+		 			}
+		 		} else {
+		 			english();
+		 		}
+		 	}
+            function navLangs(){
+                var languages = navigator.languages;
+                document.getElementById("supportLangs").innerHTML = "The user-supported languages are: " + languages;
+            }
+		 </script>
+	</head>
+	<body>
+		<button id="EnglishButton" onclick="pickLang('en')" onmouseover="navLangs()" class="buttonOn">English</button>
+		<button id="GermanButton" onclick="pickLang('')" onmouseover="navLangs()" class="buttonOff">German</button>
+		<h1 id="title">Mohr Travel</h1>
+		<h3 id="byLine">Who doesn't want to travel mohr?</h3>
+		<p id="greeting">Hello, Carmen Sandiego!</p>
+		<p id="currentTrips">San Francisco to Beijing<br>Paris to Buenos Aires<br>Dehli to Cairos</p>
+		<p id="supportLangs" onload="navLangs()"></p>
+        
+        <script>
+            window.onload = navLangs();
+        </script>
+        
+        <style type="text/css">
+            body{
+                font: "Minion Pro";
+                font-size: 18px;
+                color: darkblue;
+                background: linear-gradient(ivory, wheat);
+            }
+            .buttonOn{
+                cursor: pointer;
+                border-radius: 50%;
+                padding: 10px 10px;
+                font-family: "Papyrus", "EmojiOne", "Braggadocio";
+                text-align: center;
+                color: white;
+                background-color: limegreen;
+                border: 3px solid red;
+                box-shadow: 1px 3px gray;
+            }
+            .buttonOff{
+                cursor: pointer;
+                border-radius: 50%;
+                padding: 10px 10px;
+                font-family: "Papyrus", "EmojiOne", "Braggadocio";
+                text-align: center;
+                color: limegreen;
+                background-color: gainsboro;
+                border: none;
+                box-shadow: 1px 3px gray;
+            }
+            .special{
+                color: red;
+                font-size: 25px;
+                font-weight: bold;
+                font-style: italic;
+                background: lightcyan;
+                    
+            }
+        </style>
+
+	</body>
+    
+
+
+
+</html>

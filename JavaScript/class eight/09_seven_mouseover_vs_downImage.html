@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Let's make it pretty now...</title>
+    </head>
+    <body>
+        <script>
+            var count = 0;
+            
+            function up(){
+                count++;
+                document.getElementById("theCount").innerHTML = count;
+            }
+            
+            function down(){
+                count--;
+                document.getElementById("theCount").innerHTML = count;
+            }
+        </script>
+        <h2>Put your cursor over the up arrow to increase the count</h2>
+        <p>Current count: <span id="theCount">0</span></p>
+        <img src="up.jpg" onmouseover="this.src='up.jpg';up()" onclick="this.src='down.jpg';down()">
+    </body>
+</html>

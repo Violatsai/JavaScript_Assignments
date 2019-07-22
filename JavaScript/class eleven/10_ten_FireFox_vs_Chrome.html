@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switching styleSheets by name with javaScript</title>
+    <style title="Christmas">
+        body {
+            background-color: red;
+            color: green;
+            font: bold 24px arial, helvetica, sans-serif;
+        }
+    </style>
+    <style title="Halloween">
+        body {
+            background-color: black;
+            color: orange;
+            font: italic 24px arial, helvetica, sans-serif;
+        }
+    </style>
+    <style title="Easter">
+        body {
+            background-color: lawngreen;
+            color: deeppink;
+            font: normal 24px "Comic Sans", tahoma;
+        }
+    </style>
+    
+    <script>
+        function findSS(mySheet){
+            var foundIt = -1;
+            for (var i = 0; i < document.styleSheets.length; i++){
+                if ( document.styleSheets[i].title == mySheet ){
+                    foundIt = i;
+                }    
+            }
+            return foundIt;
+        }
+        
+        function sheet(){
+            var sheetName = prompt("Stylesheet Name? \nChristmas\nHalloween\nEaster");
+            var sheetIndex = findSS(sheetName);
+            
+            if ( sheetIndex < 0 ){
+                alert("Uh, something's wrong here.  You entered " + sheetName + ".  I don't recognize that name.  Nothing changed.");
+            } else {
+                for (var i = 0; i < document.styleSheets.length; i++){
+                    if ( i == sheetIndex ){
+                        document.styleSheets[i].disabled = false;
+                    } else {
+                        document.styleSheets[i].disabled = true;
+                    }
+                }
+            }
+       }
+        
+        window.onload = function(){
+            document.getElementById("toggleButton").onclick = sheet;
+        }
+    </script>
+</head>
+<body>
+    Switch my stylesheet via user input by name with the button below<br>
+    <input type="button" id="toggleButton" value="Change Style">
+</body>
+</html>

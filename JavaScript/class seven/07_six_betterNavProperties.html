@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Other Navigator Objects...</title>
+</head>
+
+<body>
+    <script>
+        function go2newURL(webpage){
+            window.open(webpage);
+        }
+        
+        function go2URL(webpage){
+            window.location = webpage;
+        }
+        
+    </script>
+    
+    <h2>Let me open a new web page in a new window...</h2>
+    <p id="test_newURL">Enter URL here: <input id="newWebURL" value="https://www.google.com"></p>
+    <button id="newURL4me" onclick="go2newURL(newWebURL.value)">Let's go!</button>
+    <h2>Let me open a new web page in THIS window...</h2>
+    <p id="test_URL">Enter URL here: <input id="webURL" value="backNavProperties.html"></p>
+    <button id="URL4me" onclick="go2URL(webURL.value)">Let's go!</button>
+       
+</body> 
+</html>

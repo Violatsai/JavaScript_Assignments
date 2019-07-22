@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Animation</title>
+    <style>
+        #square {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            position: absolute;
+            left: 0px;
+            top: 100px;
+        }
+    </style>
+    <script>
+        function moveSquare( left, numMoves ){
+            document.getElementById("square").style.left = left+"px";
+
+            if (numMoves > 0) {
+                numMoves--;
+                left++;
+                setTimeout( moveSquare, 10, left, numMoves);
+            } else {
+                return;
+            }
+        }
+    </script>
+</head>
+<body onclick="moveSquare(0,100);">
+    <div id="square">
+        </div>
+</body>
+</html>

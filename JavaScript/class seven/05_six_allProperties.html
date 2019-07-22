@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>                      
+        .columns {         /* Wow, could this be some CSS, to make things pretty? */
+            -webkit-column-count: 5;/* Chrome, Safari, Opera */
+            -moz-column-count: 5;   /* Firefox */
+            column-count: 5;
+        }                           /* Why is this in the header again...? */
+    </style>
+</head>
+<body>
+    <div class="columns">      <!-- What do you think this does? -->
+        <script>
+            for (var prop in navigator){
+  			   document.write (prop + ": " + navigator[prop] + "<br>");
+  		    }
+  		</script>
+    </div>
+</body>
+</html>

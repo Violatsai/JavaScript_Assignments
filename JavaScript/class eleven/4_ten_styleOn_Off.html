@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>And now with styleSheets via the DOM</title>
+    <style>
+        body {
+            background-color: white;
+            color: blue;
+            font: normal 24px arial, helvetica, sans-serif;
+            padding: 20px;
+        }
+    </style>
+    <style>    
+        body {
+            background-color: black;
+            color: red;
+            font: italic bold 24px "Times New Roman", serif;
+            padding: 20px;
+        }
+    </style>
+    
+    <script>
+        var whichSheet = 0;
+        document.styleSheets[1].disabled = true;
+        function sheet(){
+            document.styleSheets[whichSheet].disabled = true;
+            whichSheet = ( whichSheet == 1 ) ? 0 : 1;
+            document.styleSheets[whichSheet].disabled = false;
+        }
+        
+        window.onload = function(){
+            document.getElementById("toggleButton").onclick = sheet;
+        }
+    </script>
+</head>
+<body>
+    Switch my stylesheet with the button below<br>
+    <input type="button" id="toggleButton" value="Toggle with styleSheets">
+</body>
+</html>

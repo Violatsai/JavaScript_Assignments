@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>More strings and arrays</title>
+    <script>
+        function stringToArray(string){
+            
+            document.getElementById("output").innerHTML = "I'm starting with this string:<br>" + string + "<br>";
+            
+            var arrayOfStrings = string.split(" ");
+            
+            document.getElementById("output").innerHTML += "And I'm winding up with:<br>" + arrayOfStrings;
+            
+            oneWordPerLine(arrayOfStrings);
+
+        }
+        
+        function oneWordPerLine(array){
+            //  Here we have each word on its own line and we know the longest single word.
+            //  It's almost like this might help with the homework or something...
+            var output = "";
+            var longest = 0;
+            var longestIndex = 0;
+            for ( i=0 ; i < array.length ; i++ ){
+                output = output + array[i] + "<br>";
+                if ( array[i].length > longest ){
+                    longest = array[i].length;
+                    longestIndex = i;
+                }
+            }
+            
+            document.getElementById("output").innerHTML += "And this is that same array broken up:<br>" + output + "<br><br>And this is the longest single word:<br>" + array[longestIndex] + " -- with a length of " + longest;
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+        
+    </script>
+    <p id="instructions">Hey there, this little program will ask you for a some text and break it into individual words by converting your string into an array of strings</p>
+    <p>Enter Text: <input id="input" value="I am some default text for you to look at" size=50></p>
+    <button onclick="stringToArray(input.value)">Yeah, click me</button>
+    <p id="output"></p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Arrays and Strings and Index, oh my!</title>
+</head>
+<body>
+    
+    <script>
+        var disney = new Array ("Mulan", "Moana", "Frozen", "Zootopia", "Aladdin", "Lilo and Stitch", "Little Mermaid", "Monsters Inc", "Beauty and the Beast", "The Incredibles", "Hercules", "Up");
+
+        document.write("Which Disney movies are in your collection?<br>");
+        
+        //  Being able to know which particular film makes asking for it easier...
+        var output = "1 " + disney[0] + "<br>";
+        for ( i = 1 ; i < disney.length ; i++){
+            output += i+1 + " " + disney[i] + "<br>";
+        }
+        
+        document.write(output);
+    </script>
+
+</body>
+</html>

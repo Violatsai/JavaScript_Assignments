@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hey, let's make some people now!</title>
+    <script>
+        //  Hey, this looks like it actually works!
+        function Person(){
+            this.eyes = 2;
+            this.ears = 2;
+            this.hands = 2;
+            this.feet = 2;
+            this.fingers = 10;
+            this.toes = 10;
+            this.species = "Homo sapien";
+        }
+    </script>
+</head>    
+    
+<body>
+    
+    <script>
+        var student = new Person();
+        var teacher = new Person();
+
+        Person.prototype.teeth = 32;
+        Person.prototype.nostrils = 2;
+    
+        document.write("How many ears does a student have? " + student.eyes );
+        document.write("<br>");
+        document.write("How many teeth does a student have? " + student.teeth );
+        document.write("<br>");
+        document.write("How many toes does a teacher have? " + teacher.toes );
+        document.write("<br>");
+        document.write("How many nostrils does a teacher have? " + teacher.nostrils );
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html>
+<head>
+<!-- Name: Tzu-Chieh(Viola) Tsai -->
+<!-- Section number: A -->
+    <title>Pick a Card, any Card</title>
+    <script>
+        function shuffleSuit(){
+            var digit = Math.floor(Math.random() * 4) +1;
+            switch(digit){
+                case 1 : return "♥"; break;
+                case 2 : return "♦"; break;
+                case 3 : return "♠"; break;
+                case 4 : return "♣"; break;
+                default : alert("You screwed up the suit!");
+            }
+        }
+
+        function shuffleCard(){
+            var digit = Math.floor(Math.random() * 13) +1;
+            switch(digit){
+                case 1 : return "Ace"; break;
+                case 2 : return "2"; break;
+                case 3 : return "3"; break;
+                case 4 : return "4"; break;
+                case 5 : return "5"; break;
+                case 6 : return "6"; break;
+                case 7 : return "7"; break;
+                case 8 : return "8"; break;
+                case 9 : return "9"; break;
+                case 10 : return "10"; break;
+                case 11 : return "Jack"; break;
+                case 12 : return "Queen"; break;
+                case 13 : return "King"; break;
+                default : alert("You screwed up the card!");
+            }
+        }
+        
+        
+        function dealIt(){
+            var dealtCards = "";
+            var ListForcomputer =[];
+            var ListForPlayer =[];
+            
+            for ( i = 0 ; i < 10 ; i++){
+                do {
+                    var card = shuffleCard();
+                    var suit = shuffleSuit();
+                    var newCard = card + " of " + suit;
+                    var found = totalCards.indexOf(newCard);
+                    if(found==-1){
+                       totalCards.push(newCard); 
+                    }
+                } while ( found != -1 )
+                if (i ==0){
+                    document.getElementById("cardOneForFirstPlayer").innerHTML = newCard;
+                }else if (i ==1){
+                    document.getElementById("cardTwoForFirstPlayer").innerHTML = newCard;
+                }else if (i ==2){
+                    document.getElementById("cardThreeForFirstPlayer").innerHTML = newCard;
+                }else if (i ==3){
+                    document.getElementById("cardFourForFirstPlayer").innerHTML = newCard;
+                }else if (i ==4){
+                    document.getElementById("cardFiveForFirstPlayer").innerHTML = newCard;
+                }else if (i ==5){
+                    document.getElementById("cardOneForSecondPlayer").innerHTML = newCard;
+                }else if (i ==6){
+                    document.getElementById("cardTwoForSecondPlayer").innerHTML = newCard;
+                }else if (i ==7){
+                    document.getElementById("cardThreeForSecondPlayer").innerHTML = newCard;
+                }else if (i ==8){
+                    document.getElementById("cardFourForSecondPlayer").innerHTML = newCard;
+                }else if (i ==9){
+                    document.getElementById("cardFiveForSecondPlayer").innerHTML = newCard;
+                } 
+                }
+            }
+        function discard(InputButton, cardToBeDiscarded){
+            do {
+                    var card = shuffleCard();
+                    var suit = shuffleSuit();
+                    var newCard = card + " of " + suit;
+                    var found = totalCards.indexOf(newCard);
+                    if(found==-1){
+                       totalCards.push(newCard); 
+                    }
+                } while ( found != -1 )
+            document.getElementById(cardToBeDiscarded).innerHTML = newCard;
+            //InputButton.disabled = "disabled"
+            document.getElementById(InputButton).disabled = true;
+        }
+            //return totalCards;
+
+    </script>
+</head>
+<body onload="dealIt()">  
+    <script>
+    var totalCards=[];
+    
+    </script>
+    <p>First player's cards</p>
+    <p id="cardOneForFirstPlayer"></p>
+    <button id="discardOne" onclick="discard('discardOne','cardOneForFirstPlayer')">Discard</button>
+    <p id="cardTwoForFirstPlayer"></p>
+    <button id="discardTwo" onclick="discard('discardTwo','cardTwoForFirstPlayer')">Discard</button>
+    <p id="cardThreeForFirstPlayer"></p>
+    <button id="discardThree" onclick="discard('discardThree','cardThreeForFirstPlayer')">Discard</button>
+    <p id="cardFourForFirstPlayer"></p>
+    <button id="discardFour" onclick="discard('discardFour','cardFourForFirstPlayer')">Discard</button>
+    <p id="cardFiveForFirstPlayer"></p>
+    <button id="discardFive" onclick="discard('discardFive','cardFiveForFirstPlayer')">Discard</button>
+    <p>Second player's cards</p>
+    <p id="cardOneForSecondPlayer"></p>
+    <button id="discardSix" onclick="discard('discardSix','cardOneForSecondPlayer')">Discard</button>
+    <p id="cardTwoForSecondPlayer"></p>
+    <button id="discardSeven" onclick="discard('discardSeven','cardTwoForSecondPlayer')">Discard</button>
+    <p id="cardThreeForSecondPlayer"></p>
+    <button id="discardEight" onclick="discard('discardEight','cardThreeForSecondPlayer')">Discard</button>
+    <p id="cardFourForSecondPlayer"></p>
+    <button id="discardNine" onclick="discard('discardNine','cardFourForSecondPlayer')">Discard</button>
+    <p id="cardFiveForSecondPlayer"></p>
+    <button id="discardTen" onclick="discard('discardTen','cardFiveForSecondPlayer')">Discard</button>
+</body>
+</html>

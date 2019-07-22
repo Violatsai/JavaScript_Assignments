@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrays and Functions and Methods...</title>
+    <script>
+        function gimmeFood(someArray){
+            var differentOrders = someArray.length;
+            for ( i=0; i < differentOrders ; i++ ){
+                document.getElementById("output").innerHTML += someArray[i] + "<br>";  // wait, why not = ?
+            }            
+        }
+        //  I hope we get to this...
+        function findMe(string2find){
+            var differentOrders = foodOrder.length;
+            for ( i=0; i < differentOrders ; i++ ){
+                if ( foodOrder[i].indexOf( string2find ) != -1 ){
+                    alert("Your food item is item number " + foodOrder[i].indexOf( string2find ) + " in order " + i);
+                    alert("That is " + foodOrder[i][0] + "'s order");
+                }
+            }            
+        }
+    </script>
+
+</head>
+<body>
+    <p id="output"></p>
+    <button onclick="findMe(search.value)" value="Fresas">Find the Food</button>
+    <p>What are you looking for? <input id="search"></p>
+    <script>
+        var foodOrder = [];
+        foodOrder[0] = ["David","BBQ pork fried rice","Dumplings in hot oil","Ming Beef","Taco Salad"];
+        foodOrder[1] = ["Pablo","Milanesa","Mashed potatoes","Matambre"];
+        foodOrder[2] = ["Luciana","Uvas","Fresas"];
+
+        gimmeFood(foodOrder);
+        
+    </script>
+</body>
+</html>

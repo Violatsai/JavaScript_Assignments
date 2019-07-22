@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I suppose it's time to get Colorful</title>
+    <style>
+        form {padding: 10px; font: lust script, minion pro, sans-serif; font-size: 14pt; line-height: 24pt; background-color: azure}
+        p {padding: 10px; font: minion pro, lust script, sans-serif; font-size: 20pt; line-height: 20pt; color: floralwhite; background-color: crimson}
+    </style>
+</head>
+<body>
+
+    <form name="defineUser" autocomplete="off">        
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" id="firstName" value="Luciana"><br>
+    <label>Last Name: <input type="text" name="lastName" value="Poopie-Pants"></label><br>
+    <label>Age: <input type="number" name="age" value=3></label><br>        
+
+    What's your favorite color? <input type="color" name="pretty" value="#ffb6c1"><br>
+    <!-- that color is 'light pink' -- see words are better! -->
+                
+    <input type="button" value="Submit (locally)" onclick="display(firstName.value, lastName.value, age.value, pretty.value)">
+    </form>
+    <p id="output"></p>
+    
+    <script>
+        function display(first, last, age, pretty){
+            document.body.style.backgroundColor = pretty; 
+            document.getElementById("output").innerHTML = "Your name is " + first + " " + last + " and you are " + age + " years old.";            
+        }
+    </script>
+
+</body>
+</html>

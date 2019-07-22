@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- Name: Tzu-Chieh(Viola) Tsai -->
+<!-- Section number: A -->
+    <title>Pick a Card, any Card</title>
+    <script>
+        function shuffleSuit(){
+            var digit = Math.floor(Math.random() * 4) +1;
+            switch(digit){
+                case 1 : return "♥"; break;
+                case 2 : return "♦"; break;
+                case 3 : return "♠"; break;
+                case 4 : return "♣"; break;
+                default : alert("You screwed up the suit!");
+            }
+        }
+
+        function shuffleCard(){
+            var digit = Math.floor(Math.random() * 13) +1;
+            switch(digit){
+                case 1 : return "Ace"; break;
+                case 2 : return "2"; break;
+                case 3 : return "3"; break;
+                case 4 : return "4"; break;
+                case 5 : return "5"; break;
+                case 6 : return "6"; break;
+                case 7 : return "7"; break;
+                case 8 : return "8"; break;
+                case 9 : return "9"; break;
+                case 10 : return "10"; break;
+                case 11 : return "Jack"; break;
+                case 12 : return "Queen"; break;
+                case 13 : return "King"; break;
+                default : alert("You screwed up the card!");
+            }
+        }
+        
+        function countingScore(totalScore, card){
+            if (card == "Ace"){
+                if (totalScore + 11 > 21){
+                    totalScore += 1;
+                    return totalScore; 
+                }else{
+                    totalScore+=11;
+                    return totalScore; 
+                }
+            }else if(card == "2"){
+                totalScore += 2;
+                return totalScore; 
+            }else if(card == "3"){
+                totalScore += 3;
+                return totalScore; 
+            }else if(card == "4"){
+                totalScore += 4;
+                return totalScore; 
+            }else if(card == "5"){
+                totalScore += 5;
+                return totalScore; 
+            }else if(card == "6"){
+                totalScore += 6;
+                return totalScore; 
+            }else if(card == "7"){
+                totalScore += 7;
+                return totalScore;
+            }else if(card == "8"){
+                totalScore += 8;
+                return totalScore; 
+            }else if(card == "9"){
+                totalScore += 9;
+                return totalScore; 
+            }else if(card == "10"){
+                totalScore += 10;
+                return totalScore; 
+            }else if(card == "Jack" ||card == "Queen" ||card == "King"){
+                totalScore += 10;
+                return totalScore; 
+            }else{
+                return "Wrong count.";
+            }
+        }
+        
+        function dealIt(){
+            var dealtCards = "";
+            var ListForcomputer =[];
+            var ListForPlayer =[];
+            if (ComputerScore >= 17 ||PlayerScore >21){
+                numberOfPlayer = 1;
+            }else if(ComputerScore < 17){
+                numberOfPlayer = 2;
+            }else{
+                numberOfPlayer = 2;
+            }
+            for ( i = 0 ; i < numberOfPlayer ; i++){
+                do {
+                    var card = shuffleCard();
+                    var suit = shuffleSuit();
+                    var newCard = card + " of " + suit;
+                    var found = totalCards.indexOf(newCard);
+                    if(found==-1){
+                       totalCards.push(newCard); 
+                    }
+                } while ( found != -1 )
+                if (i ==0){
+                    PlayerScore = countingScore(PlayerScore,card);
+                    document.getElementById("cards4Player").innerHTML += newCard + "<br>";
+                    if (PlayerScore>21){
+                        document.getElementById("ScoreOfPlayer").innerHTML = PlayerScore + " -> You lost!";
+                    }else{
+                    document.getElementById("ScoreOfPlayer").innerHTML = PlayerScore;
+                    }
+                }else if (i == 1){
+                    ComputerScore = countingScore(ComputerScore,card)
+                    document.getElementById("cards4Dealer").innerHTML += newCard + "<br>";
+                    if(ComputerScore>21){
+                        document.getElementById("ScoreOfDealer").innerHTML = ComputerScore +" -> Computer lost!";
+                    }else{
+                        document.getElementById("ScoreOfDealer").innerHTML = ComputerScore;
+                    }  
+                }
+            }
+            return totalCards;
+        }
+        
+        function endGame(){
+            if(PlayerScore>ComputerScore && PlayerScore<=21){
+                document.getElementById("ScoreOfPlayer").innerHTML = PlayerScore + " -> You won!";
+            }else if(PlayerScore == ComputerScore && PlayerScore==0){
+                document.getElementById("ScoreOfPlayer").innerHTML = " -> The game hasn't started yet!";
+            }else if(PlayerScore == ComputerScore && PlayerScore !=0){
+                document.getElementById("ScoreOfPlayer").innerHTML = PlayerScore + " -> It is a tie!";
+            }else{
+                document.getElementById("ScoreOfPlayer").innerHTML = PlayerScore + " -> You lost!";
+            }
+        }
+
+    </script>
+</head>
+<body>  
+    <script>
+    var PlayerScore = 0;
+    var ComputerScore = 0;
+    var totalCards=[];
+    </script>
+    <p>Your score: </p>
+    <p id="ScoreOfPlayer"></p>
+    <p>Your Cards</p>
+    <p id="cards4Player"></p>
+    <button id="addOne" onclick="dealIt()">Hit me</button>
+    <button id="endGame" onclick="endGame()">Stay</button>
+    <p>Dealer's score: </p>
+    <p id="ScoreOfDealer"></p>
+    <p>Dealer's Cards</p>
+    <p id="cards4Dealer"></p>
+</body>
+</html>

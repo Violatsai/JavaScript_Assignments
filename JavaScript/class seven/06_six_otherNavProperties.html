@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Other Navigator Objects...</title>
+</head>
+
+<body>
+    <script>
+        function online(){
+            var response = "";
+            if ( navigator.onLine ){
+                response = "Well, I am online now...<br>";
+            } else {
+                response = "Dang!  Offline again...!<br>";
+            }
+            document.getElementById("test_online").innerHTML = response;
+        }
+        
+        function gotAudio(){
+            var response = "";
+            var audioWorks = document.createElement("audio");
+            if ( audioWorks.play ){
+                response = "Well, the browser does support HTML5 audio...!<br>";
+            } else {
+                response = "Darn!  No music (or at least HTML5 audio) for you!<br>";
+            }
+            document.getElementById("test_audio").innerHTML = response;
+        }
+        
+        function gotSize(){
+            var response = "";
+            var windowWidth = window.innerWidth;
+            if ( windowWidth < 600 ){
+                response = "You're prolly working on a widdle screen<br>";
+            } else {
+                response = "Laptop or desktop, right?<br>";
+            }
+            document.getElementById("test_size").innerHTML = response;
+        }
+        
+        function getNewSize(value){
+            var newValue = parseInt(value);
+            //  Uh, why isn't this working, David?
+            //  I've a feeling you included this for a reason...
+            //  I'll give you a hint, if you run this in Firefox, it works...
+            window.resizeTo( newValue, newValue);
+        }
+   
+        function newSizeWindow(){
+            var newWindow = window.open("https://www.google.com","","width=100,height=100");
+        }
+   
+    </script>
+    
+    <h2>Ever wondered if you were online?</h2>
+    <button id="amI_online" onclick="online()">Am I online now?</button>
+    <p id="test_online"></p>
+    <h2>Does this thing support music?</h2>
+    <button id="audio4me" onclick="gotAudio()">Music is my life!</button>
+    <p id="test_audio"></p>
+    <h2>How big is my window?</h2>
+    <button id="size4me" onclick="gotSize()">Please don't supersize me...</button>
+    <p id="test_size"></p>
+    <h2>Let me put my page on a diet...</h2>
+    <p>Enter new size here: <input id="newSize" value="200"></p>
+    <button onclick="getNewSize(newSize.value,newSize.value)">Poof!</button>
+    <h2>Let me supersize a NEW browser window...!</h2>
+    <button onclick="newSizeWindow()">Poof!</button>
+       
+</body>
+</html>

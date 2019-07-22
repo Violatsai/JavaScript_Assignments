@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!-- Name: Tzu-Chieh(Viola) Tsai -->
+    <!-- Section number: A -->
+    <title>I suppose it's time to get Formal</title>
+    <style>
+        h1 {padding: 5px; font: Times, Courier New, Georgia, sans-serif; font-size: 20pt;font-style: italic; color: lightyellow; background-color: thistle}
+        form {padding: 10px; font: Courier New, Times, Georgia, sans-serif; font-size: 14pt; line-height: 24pt; color: lightyellow; background-color: lightsteelblue}
+        p {padding: 10px; font: Courier New, Times, Georgia, sans-serif; font-size: 14pt; line-height: 20pt; color: floralwhite; background-color: crimson}
+        div {font: Georgia, Courier New, Times, sans-serif;; font-style: italic; font-size: 14pt; line-height: 20pt; color: lightsteelblue; background-color: lavender}
+        .title {margin-right: 1180px; font-size: 14pt; line-height: 18pt; background-color: lavenderblush}
+        .output {font: tahoma, serif; font-style: italic; font-size: 16pt; color: lightcoral; line-height: 20pt}
+        
+    </style>
+</head>
+<body>
+    <h1>My Address Book</h1>
+    
+    <form action="#" name="defineMe" autocomplete="off">        
+    <label>First Name: <input type="text" name="firstName" value="Tom"></label><br>
+    <label>Last Name: <input type="text" name="lastName" value="Hiddleston"></label><br>
+    <label>Phone: <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" value= "800-123-4567"></label><br>
+    <label>Email: <input type="text" name="email" value=TomH@gmail.com></label><br>
+    
+    
+        <div id="preferredTitle" class=title>
+            <input type="radio" name="userTitle" id="Dr" value="Dr."> Dr.<br>
+            <input type="radio" name="userTitle" id="Ms" value="Ms."> Ms.<br>
+            <input type="radio" name="userTitle" id="Mrs" value="Mrs."> Mrs.<br>
+            <input type="radio" name="userTitle" id="Mr" value="Mr."> Mr.<br>
+            <input type="radio" name="userTitle" id="Decline" value=""> Decline to State<br>
+        </div>
+
+        <select id="userStatus">
+        <option value="Single">Single</option>
+        <option value="Married">Married</option>
+        <option value="Separated">Separated</option>
+        <option value="Divorced">Divorced</option>
+        <option value="It's complicated">It's complicated</option>
+        <option value="In an open relationship">In an open relationship</option>
+        </select>
+        <br>
+        
+        <input type="button" value="Submit (locally)" onclick="display(firstName.value, lastName.value, phone.value, email.value)">
+    
+    </form>
+    
+    <div id="addressBook"></div>
+      
+    <script>
+        
+        function display(first, last, phone, email){
+           
+            var userTitle = "";
+            var radioSetting = document.getElementsByName("userTitle");
+            for (i = 0; i < radioSetting.length; i++) {
+                if (radioSetting[i].checked) {
+                    userTitle = radioSetting[i].value;
+                }
+            }
+            
+            var userStatus = document.getElementById("userStatus").value;
+            
+            document.getElementById("addressBook").innerHTML += userTitle+ " "+first+" "+last+"<br>"+ "Relationship status: "+userStatus+"<br>"+"Phone number: "+ phone+"<br>"+"Email: "+ email ;
+            document.getElementById("addressBook").setAttribute("class","output");  
+            
+            document.getElementById("addressBook").innerHTML +="<br><br>";
+        }
+
+    </script>
+
+</body>
+</html>

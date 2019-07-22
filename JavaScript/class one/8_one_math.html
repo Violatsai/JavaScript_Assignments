@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Of course we're going to do some math...that's kinda what coding is all about...</title>
+</head>
+<body>   
+    <script>
+        var numberOne = prompt("Could you please enter a number?");
+        var numberTwo = prompt("Cool, now gimme another number");
+
+        var sum = Number(numberOne) + Number(numberTwo);
+        document.write("The sum of your two numbers " + numberOne + " and " + numberTwo + " is " + sum + "<br>");
+
+        var difference = Number(numberOne) - Number(numberTwo);
+        document.write("The difference between your two numbers " + numberOne + " and " + numberTwo + " is " + difference + "<br>");
+
+        var product = Number(numberOne) * Number(numberTwo);
+        document.write("The product of your two numbers " + numberOne + " and " + numberTwo + " is " + product + "<br>");
+
+        for ( i = 0 ; i < 3 ; i++ ){
+            document.write("<br>");
+        }
+        
+        var radius = prompt("Could you give me the radius of a circle?");
+        const pi = 3.1415;
+        document.write("Pi is " + pi + "<br>");
+        var circumfrance = 2*pi*radius;
+        var volume = pi*radius**2
+        document.write("Your circle with a radius of " + radius + " would have a circumfrance of " + circumfrance + " and an area of " + volume);
+    </script>
+</body>
+</html>

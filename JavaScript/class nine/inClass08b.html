@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Let's get Stylish</title>
+    <style>
+        form {padding: 10px; font-family: lust script, papyrus, minion pro, tahoma, sans-serif; font-size: 14pt; line-height: 24pt; background-color: aqua; color: firebrick}
+        p {padding: 5px; font-family: tahoma, fantasy; font-size: 18pt; color: orange; background-color: darkseagreen}
+        .today {font-size: 15pt; color: darkmagenta; background-color: yellow}
+        .Nika {color: bisque; background-color: blue}
+        .Megan {color: aquamarine; font-family: fantasy}
+    </style>
+</head>
+<body>
+
+    <form action="#" name="defineUser" autocomplete="on">
+    
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" id="firstName" value="Luciana"><br>        
+    <label>Last Name: <input type="text" name="lastName" value="Poopie-Pants"></label><br>        
+    <label>Age: <input type="number" name="age" value=3></label><br>
+    <input type="button" value="Submit Me" onclick="display( firstName.value, lastName.value, age.value, pretty.value )">   
+    
+    What's your favorite color? <input type="color" name="pretty" value="#ffb6c1"><br>
+    </form>
+    
+    <fieldset>
+        <legend>Today I...</legend>
+        <div id="todayList" class=today>
+            <input type="checkbox" name="today" id="shower"> Took a shower<br>
+            <input type="checkbox" name="today" id="pooped"> Asked to go potty<br>
+            <input type="checkbox" name="today" id="talked"> Told Daddy a story<br>
+            <input type="checkbox" name="today" id="story"> Asked for a bedtime story (Peter Rabbit is popular)<br>
+            <input type="checkbox" name="today" id="tv"> Asked to watch Ariel, Barbie, or Moana AGAIN...!<br>
+        </div>
+    </fieldset>
+        
+    <p id="output"></p>
+    
+    <script>
+        function display( first, last, age, pretty ){
+            document.body.style.backgroundColor = pretty;
+            document.getElementById("output").innerHTML = "Your name is " + first + " " + last + " and you are " + age + " years old.";
+            
+            var todayActivities = 0;
+            todayActivities = moreFormData();
+            
+            var newText = "";
+            if ( todayActivities == 5 ){
+                newText = "You had a typical day, Princess";
+            } else if ( todayActivities == 0 ){
+                newText = "What, are you sick?  Are you in a coma?  Should I get chocolate?";
+            } else {
+                newText = "Well, get busy, young lady!";
+            }
+            alert(newText);
+            
+            var newElement = document.createElement("div");
+            newElement.setAttribute("id","moreMe");
+            newElement.setAttribute("class","Megan");
+            
+            newElement.appendChild( document.createTextNode( newText ));
+            document.body.append(newElement);
+            
+        }
+        
+        function moreFormData(){
+            var count = 0;
+            var test = document.getElementById("shower");
+            var temp = test.checked;
+            count = count + temp;
+            
+            test = document.getElementById("pooped");
+            temp = test.checked;
+            count = count + temp;
+            
+            test = document.getElementById("talked");
+            temp = test.checked;
+            count = count + temp;
+            
+            test = document.getElementById("story");
+            temp = test.checked;
+            count = count + temp;
+            
+            test = document.getElementById("tv");
+            temp = test.checked;
+            count = count + temp;
+            
+            return count;
+            
+        }
+    
+    </script>
+    
+    
+</body>
+</html>

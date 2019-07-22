@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A BETTER JavaScript Animation</title>
+    <style>
+        #square {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            position: absolute;
+            left: 0px;
+            top: 100px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load',initialize,false);
+
+//        window.onload( initialize() );
+
+        function initialize(){
+            document.getElementById("square").addEventListener('click',function(anonymous){
+            var left = window.getComputedStyle(anonymous.target).getPropertyValue("left"); 
+                //  gets the current location of the square instead of letting it reset
+            left = parseInt(left);  // converts this string to a number
+            moveSquare(left,100);   // moves the square from left to 100 px to the right
+        }, false);                  // gee, looks like an anonymous function
+
+    }
+
+    function moveSquare(left,numMoves) {
+        document.getElementById("square").style.left = left+"px";
+
+        if (numMoves > 0) {
+            numMoves--;
+            left++;
+            setTimeout( moveSquare, 10, left, numMoves);
+        } else {
+            return;
+        }
+    }
+    </script>
+    </head>
+    <body>
+        <div id="square"></div>
+    </body>
+</html>

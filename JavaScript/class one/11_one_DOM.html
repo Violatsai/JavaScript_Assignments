@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome to the DOM -- Document Object Model</title>
+</head>
+<body>
+    
+    <script>
+        // Time to talk about the DOM, Properties, and Methods
+        var output = document.title;
+        
+        alert("The title of this document is:\n" + output);
+
+        var languageSet = document.characterSet;
+        alert(languageSet);
+        document.write("This document uses the " + languageSet + " encoding method.<br>");
+        
+        var lastUpdated = document.lastModified;
+        alert ("This document was last updated on " + lastUpdated);
+        
+        alert("Do you want a visual of the DOM?");
+        document.write("<img src='theDom.jpg' alt='visual representation of the DOM'>");
+        
+    </script>
+
+</body>
+</html>

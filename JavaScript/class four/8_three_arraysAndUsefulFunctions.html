@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Let's explore arrays and serve food at the same time</title>
+    <script>
+        //  I don't just want the order, but who ordered what...
+        function gimmeFood(someArray){
+            var differentOrders = someArray.length;
+            for ( i=0; i < differentOrders ; i++ ){
+                alert(someArray[i]);
+            }            
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+    //  THIS is how you SHOULD define multi-dimensional arrays!
+        var foodOrder = [];
+        foodOrder[0] = ["David","BBQ pork fried rice","Dumplings in hot oil","Ming Beef","Taco Salad"];
+        foodOrder[1] = ["Pablo","Milanesa","Mashed potatoes","Matambre"];
+        foodOrder[2] = ["Luciana","Uvas","Fresas"];
+
+        gimmeFood(foodOrder);
+        
+    </script>
+
+</body>
+</html>

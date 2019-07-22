@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Think globally, but declare your variables locally</title>
+</head>
+<body>
+    
+    <script>
+        var words = "Please, don't write code like this!";
+
+        function badCode(){
+            alert("I'm going to show you some bad code.  " + words);
+        }
+        
+        function worseCode(){
+            words = "This would cause a bug in real life...";
+            alert("Now this is even worse.  " + words);
+        }
+        
+        badCode();
+        worseCode();
+        badCode();
+        
+    </script>
+
+</body>
+</html>

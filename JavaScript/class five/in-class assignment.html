@@ -1,0 +1,25 @@
+<!DOCKTYPE html>
+<html>
+    <head>
+        <title>I love Rollercoasters and other Loop-the-loops</title>
+        <script>
+        function askMe(){
+            var numOfTime = prompt("How many times should I tell you that I love you?");
+            return numOfTime;
+        }
+        function sayIt(howMany){
+            for ( i=1; i <= howMany; i++ ){
+                document.write("I love you!<br>");
+            }
+            
+        }
+        </script>
+    </head>
+    <body>
+        <script>
+            var howMany = askMe();
+            sayIt(howMany);
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>You've heard of Supersize me?  Well Internationalize me...!</title>
+    <script>
+        function localize(){
+//            document.getElementById("title").innerHTML = "";  // don't localize a title!
+            document.getElementById("byline").innerHTML = "Qui ne veut pas voyager plus?";
+            document.getElementById("greeting").innerHTML = "Salut, Madame Sandiego";
+            document.getElementById("currentTrips").innerHTML = "San Francisco à Beijing<br>Paris à Buenos Aires<br>Jakarta à Sydney";
+            
+            var newElement = '<p id="specials">Nous avons des offres pour vous!</p>';
+            var bodyElement = document.getElementById("greeting");
+            bodyElement.innerHTML = bodyElement.innerHTML + newElement;
+        }
+        
+        function english(){
+            document.getElementById("byline").innerHTML = "Who doesn't want to travel mohr?";
+            document.getElementById("greeting").innerHTML = "Hello, Carmen Sandiego";
+            document.getElementById("currentTrips").innerHTML = "San Francisco to Beijing<br>Paris to Buenos Aires<br>Dehli to Cairo";
+
+            document.getElementById("greeting").innerHTML += "<br><br>Only in French...";
+        }                               // This is only for demonstration purposes...!
+        
+        function setLang(flag){
+            if ( flag != 'reset') {
+                localize();
+            } else {                    // this is just for the example...
+                english();              // It forces the UI into English
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="EnglishButton" onclick="setLang('reset')">English</button>
+    <button id="ForeignButton" onclick="setLang(' ')">Foreign</button>
+    <h1 id="title">Mohr Travel!</h1>
+    <h3 id="byline">Who doesn't want to travel mohr?</h3>
+    <p id="greeting">Hello, Carmen Sandiego</p>
+    <p id="currentTrips">San Francisco to Beijing<br>Paris to Buenos Aires<br>Dehli to Cairo</p>
+            
+</body>
+</html>

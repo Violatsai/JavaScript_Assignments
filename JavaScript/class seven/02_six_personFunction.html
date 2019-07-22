@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hey, let's make some people now!</title>
+    <script>
+        function Person(){
+            this.eyes = 2;
+            this.ears = 2;
+            this.hands = 2;
+            this.feet = 2;
+            this.fingers = 10;
+            this.toes = 10;
+            this.species = "Homo sapien";
+            this.digits = getFingersToes;
+            this.oneLimb = getDigitsPerLimb;
+        }
+        
+        function getFingersToes(){
+            return this.fingers + this.toes;
+        }
+
+        function getDigitsPerLimb(){
+            var fingerPerHand = this.fingers / this.hands;
+            var toesPerFoot = this.toes / this.feet;
+            if ( fingerPerHand == toesPerFoot ){
+                return fingerPerHand;
+            } else {
+                return "Uh, fingers and toes are not matching up...!"
+            }
+        }
+    </script>
+</head>    
+    
+<body>
+    
+    <script>
+        var student = new Person();
+            
+        document.write("How high can a person count?<br>Well, they have " + student.digits() + " fingers and toes!");
+        document.write("<br><br>");
+        document.write("How high can a person count using only one limb?<br>Well, they have " + student.oneLimb() + " fingers/toes on one hand/foot!");
+    </script>
+
+</body>
+</html>

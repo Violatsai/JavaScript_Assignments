@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome (back) to Arrays</title>
+    <script>
+        function arrayContents( someArray ){
+            var output = "";
+            for ( i=0 ;  i < someArray.length ; i++ ){
+                output += someArray[i] + "<br>";
+            }
+            document.getElementById("foodOrder").innerHTML = output;
+        }
+        
+        function addToOrder( additionalString, someArray ){
+            //  And here's let's make a function that adds an entry to the end of any array.
+            //  We'll automatically update the current array once we're done.
+
+            someArray.push( additionalString );
+            
+            arrayContents( someArray );
+        }
+        
+        function findOrder ( searchString, someArray ){
+            var found = false;
+            for ( i=0 ;  i < someArray.length ; i++ ){
+                if ( searchString == someArray[i] ){
+                    found = true;
+                }
+            }
+            if ( found ) {
+                document.getElementById("foodOrder").innerHTML += "<br><br>Your item " + searchString + " is in your order";
+            } else {
+                document.getElementById("foodOrder").innerHTML += "<br><br>Your item " + searchString + " is NOT in your order";
+            }
+
+        }
+    </script>
+
+</head>
+<body>
+        
+    <p>Enter your food order here: <input id="input"></p>
+    <button onclick="addToOrder( input.value, dinner )">Add to Your Order</button>
+    <button onclick="findOrder( input.value, dinner )">Find in Your Order</button>
+    <p id="foodOrder"></p>
+
+    <script>
+        //  Let's create an order for tonight's dinner and then display it.
+        
+        //  How do we define and populate an array again...?
+        var dinner = new Array ("pizza", "sushi", "BBQ pork fried rice", "tacos", "pad thai", "ice cream", "brownies");
+
+        document.write("What did you want for dinner tonight?<br>");
+        
+        arrayContents( dinner );
+    </script>
+</body>
+</html>

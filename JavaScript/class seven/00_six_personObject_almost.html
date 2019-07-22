@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hey, let's make some people now!</title>
+    <script>
+        //  The book talks about this, but let's dig a little deeper...
+        function Person(){
+            Person.eyes = 2;
+            Person.ears = 2;
+            Person.hands = 2;
+            Person.feet = 2;
+            this.fingers = 10;
+            this.toes = 10;
+            this.species = "Homo sapien";
+        }
+    </script>
+</head>    
+    
+<body>
+    
+    <script>
+        var student = new Person();
+        var teacher = new Person();
+        
+        //  How is this following line different than the definition for the Person object?
+        student.ears = 2;
+        // global variable
+
+        document.write("How many eyes does a student have? " + student.eyes );
+        //  Maybe that explains why I have to wear glasses?
+        document.write("<br>");
+        document.write("How many ears does a student have? " + student.ears );
+        document.write("<br>");
+        document.write("How many fingers does a teacher have? " + teacher.fingers );
+        document.write("<br>");
+        document.write("How many toes does a teacher have? " + teacher.toes );
+        
+    </script>
+
+</body>
+</html>

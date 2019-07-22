@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>What's your sign?</title>
+    <script>
+        
+        function greeting (firstName, lastName){
+        var salutation = "";
+        if ( lang == "fr"){
+            salutation = "Salut, " + firstName + " " + lastName;
+            } else if(lang == "en"){
+            salutation = "Hello, there, " + firstName + " " + lastName;
+                      } else {
+                salutation = "Hello, there, " + firstName + " " + lastName;
+            }
+            document.getElementById("greeting").innerHTML = salutation;
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1 id="intro">Tell me a little bit about yourself!</h1>
+    <h3 id="name">What's your name?</h3>
+    <p id="firstName">First Name: <input id="first" value="a"></p>
+    <p id="lastName">Last Name: <input id="last" value="b"></p>
+    <p id="greeting"></p>
+    <button id="buttonName" onclick="greeting(first.value, last.value)">Greetings!</button>
+
+    <script>
+        var languages = navigator.languages;
+        document.getElementById("greeting").innerHTML += "<br>David included this to show you that my user-selected languages are: " + languages +" <br>";
+        if ( languages.includes("fr") ){
+            document.getElementById("intro").innerHTML = "Dis moi un peu à propos de toi-même!";
+            document.getElementById("name").innerHTML = "Quel est votre nom?";
+            document.getElementById("firstName").innerHTML = "Prénom: <input id='first' value=''>";
+            document.getElementById("lastName").innerHTML = "Nom de famille: <input id='last'' value=''>";
+            document.getElementById("buttonName").innerHTML = "Salut!";
+            alert("yup French!")
+            lang = "fr";
+        } else if(languages.includes("en")){
+            lang = "en";
+            alert("yup English!")
+        } else {
+            alert("Nope!")
+            lang = "";
+        }
+
+    </script>
+            
+</body>
+</html>

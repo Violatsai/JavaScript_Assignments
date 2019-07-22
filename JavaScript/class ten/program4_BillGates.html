@@ -1,0 +1,96 @@
+<!--Bill Gates-->
+<!--TRLM8638B-->
+
+<!--DOCTYPE-->
+<html>
+<head>
+    <title>Bill Gates is having trouble with his javaScript -- program 4</title>
+    <style>
+        body {
+        font-family: 'arial';
+        font-size: 13;
+        margin-left: 20pt;
+        margin-top: 20pt;
+        line-height: 1.2;
+        }
+        
+        h1 {
+        color: darkblue;
+        margin-top: 15pt;
+        }
+        
+        h2 {
+        color: darkgrey;
+        margin-top: 15 pt;
+        }
+    </style>
+    <script>
+        function greeting(firstName, lastName){
+            var salutation = "";
+            salutation = "Hi friend! It is nice to meet you " + firstName + " " + lastName;
+            document.getElementById("greeting").innerHTML = salutation;
+        }
+        
+        function age(monthBorn, dayBorn, yearBorn) {
+            var now = new Date();
+            var nowYear = now.getFullYear();
+            var nowMonth = now.getMonth() + 1;
+            var nowDate = now.getDate();
+        
+            var age = 0;
+            if (nowMonth > monthBorn) {
+                age = nowYear - yearBorn;
+            }  else if ( ( nowMonth == monthBorn ) && ( nowDate >= dayBorn ) ){
+                age = nowYear - yearBorn;
+            }  else {
+                age = nowYear - yearBorn -1;
+            }
+            document.getElementById("age").innerHTML = "You are " + age + " years old";
+        }
+        
+        function zodiac(monthBorn, dayBorn){
+            
+            //alert(monthBorn + " and " + dayBorn);
+            var zodiacSign ="";
+            switch(monthBorn){
+             case 1 : if (dayBorn <= 19) {zodiacSign = "Capricorn"; break;} else {zodiacSign = "Aquarius";break;}
+             case 2 : if (dayBorn <= 18) {zodiacSign = "Aquarius"; break;} else {zodiacSign = "Pisces";break;}
+             case 3 : if (dayBorn <= 20) {zodiacSign = "Pisces"; break;} else {zodiacSign = "Aries";break;} 
+             case 4 : if (dayBorn <= 19) {zodiacSign = "Aries"; break;} else {zodiacSign = "Taurus";break;} 
+             case 5 : if (dayBorn <= 20) {zodiacSign = "Taurus"; break;} else {zodiacSign = "Gemini";break;}
+             case 6 : if (dayBorn <= 20) {zodiacSign = "Gemini"; break;} else {zodiacSign = "Cancer";break;} 
+             case 7 : if (dayBorn <= 22) {zodiacSign = "Cancer"; break;} else {zodiacSign = "Leo";break;} 
+             case 8 : if (dayBorn <= 22) {zodiacSign = "Leo"; break;} else {zodiacSign = "Virgo";break;}
+             case 9 : if (dayBorn <= 22) {zodiacSign = "Virgo"; break;} else {zodiacSign = "Libra";break;} 
+             case 10 : if (dayBorn <= 22) {zodiacSign = "Libra"; break;} else { zodiacSign = "Scorpio";break;} 
+             case 11 : if (dayBorn <= 21) {zodiacSign = "Scorpio"; break;} else {zodiacSign = "Sagitarius";break;}
+             case 12 : if (dayBorn <= 21) {zodiacSign = "Sagitarius"; break;} else {zodiacSign = "Capricorn";break;}
+            } 
+            document.getElementById("zodiac").innerHTML = "based on your birthday, your zodiac sign is a " + zodiacSign;
+        }
+    </script>
+    
+    
+</head>
+<body>
+    
+    <h1 id="introduction">Hi friend!</h1>
+    <h2 id="name">What is your name?</h2>
+    <p id="firstName">First Name: <input id="first" value="Chetna"></p>
+    <p id="lastName">Last Name: <input id="last" value="Aggarwal"></p>
+    <p id="greeting"></p>
+    <button id="button1" onclick="greeting(first.value, last.value)">Greetings!</button>
+    <h2 id="birthday">When is your birthday?</h2>
+    <p> Month: <input id="monthBorn" value="03"></p>
+    <p> Day: <input id="dayBorn" value="06"></p>
+    <p> Year: <input id="yearBorn" value="1993"></p>
+    <p id="age"></p>
+    <button id="button2" onclick="age(monthBorn.value, dayBorn.value, yearBorn.value)">Calculate Age</button>
+    <p id="zodiac"></p>
+    <button id="button3" onclick="zodiac(Number(monthBorn.value), Number(dayBorn.value))">Zodiac Sign</button>
+    
+    <script>  
+    </script>
+    
+</body>
+</html>

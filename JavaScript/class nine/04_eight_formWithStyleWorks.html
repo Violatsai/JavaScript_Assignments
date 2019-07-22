@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I suppose it's time to get Styin'</title>    
+    <style>
+        form {padding: 10px; font: lust script, minion pro, sans-serif; font-size: 14pt; line-height: 24pt; background-color: azure}
+        
+        p {padding: 10px; font: minion pro, lust script, sans-serif; font-size: 20pt; line-height: 20pt; color: floralwhite; background-color: crimson}
+    </style>
+
+</head>
+<body>
+
+    <form name="defineUser" autocomplete="off">        
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" id="firstName" value="Leonardo"><br>
+    <label>Last Name: <input type="text" name="lastName" value="Da Vinci"></label><br>
+    <label>Age: <input type="number" name="age" value=577></label><br>        
+    <input type="button" value="Submit" onclick="display( firstName.value, lastName.value, age.value )">
+    </form>      
+    <p id="output"></p>
+    <!-- Yes, this examples is rigged because we're doing this locally.  But I wanted
+            to call this out so that when you're working on this at home you don't
+            get all frustrated and confused with the disappearing output.   -->
+      
+    <script>
+        function display(first, last, age){
+            document.getElementById("output").innerHTML = "Your name is " + first + " " + last + " and you are " + age + " years old.";            
+        }
+    </script>
+
+</body>
+</html>

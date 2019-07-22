@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Strings and arrays</title>
+    <script>
+        //  Let's turn a string into an array of string...might be helpful for the homework...
+        function stringToArray(string){
+            
+            document.getElementById("output").innerHTML = "I'm starting with this string:<br>" + string + "<br>";
+            
+            var arrayOfStrings = string.split(" ");
+            
+            document.getElementById("output").innerHTML += "And I'm winding up with:<br>" + arrayOfStrings;
+
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+    //  Nope.  Nothing here.  I should have left this out entirely, but I wanted to show that you can include it.
+    </script>
+    <p id="instructions">Hey there, this little program will ask you for a some text and break it into individual words by converting your string into an array of strings</p>
+    <p>Enter Text: <input id="input" value="I am some default text for you to look at" size=50></p>
+    <button onclick="stringToArray(input.value)">Yeah, click me</button>
+    <p id="output"></p>
+</body>
+</html>

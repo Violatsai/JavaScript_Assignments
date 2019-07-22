@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sheldon Cooper is a fan of string theory...and model trains</title>
+</head>
+<body>
+    
+    <script>
+        var input = prompt("Could you please type some words or a phrase?");
+        var value = prompt("Cool, now gimme some number");
+        var answer = input.charAt(value);
+        
+        document.write("The character at position " + value + " of string " + input + " is " + answer + "<br>");
+
+        var startInput = input.substring(0,value);
+        var endInput = input.substr(value);
+        document.write("Splitting the original string at that position gives " + startInput + " and " +endInput + "<br>");
+    
+        var splitInput = input.split(answer);
+        document.write("And slicing out all examples of the letter " + answer + " gives us " + splitInput + "<br>");
+        
+        var output = "";
+        for ( i = 0 ; i+1 < splitInput.length ; i++){
+            output += splitInput[i] + " and ";
+        }
+        document.write("And all sliced up, that's " + output);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time to write to the document...</title>
+    <script>
+        function francais(){
+            document.getElementById("intro").innerHTML = "Dis moi un peu à propos de toi-même!";
+            document.getElementById("name").innerHTML = "Quel est votre nom?";
+            document.getElementById("firstName").innerHTML = "Prénom: <input id='first' value=''>";
+            document.getElementById("lastName").innerHTML = "Nom de famille: <input id='last'' value=''>";
+            document.getElementById("buttonName").innerHTML = "Salut!";
+            
+            document.write("The FRENCH function -- so why isn't this working...so frustrating!<br>I've a feeling it was in Chapter #9...");
+        }
+        
+        function english(){
+            window.location( window.history.go(0) );
+        }
+        
+        function setLang(language){
+            if ( language == "fr") {
+                francais();
+                lang = "fr"
+            } else {
+                english();
+                lang = "en"
+            }       
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="EnglishButton" onclick="setLang('en')">English</button>
+    <button id="FrenchButton" onclick="setLang('fr')">French</button>
+    <h1 id="intro">Tell me a little bit about yourself!</h1>
+    <h3 id="name">What's your name?</h3>
+    <p id="firstName">First Name: <input id="first" value=""></p>
+    <p id="lastName">Last Name: <input id="last" value=""></p>
+    <p id="greeting"></p>
+    <button id="buttonName" onclick="greeting(first.value, last.value)">Greetings!</button>
+
+    <script>
+    function greeting(firstName, lastName){
+        var salutation = "";
+        if ( lang == "fr"){
+            salutation = "Salut, " + firstName + " " + lastName;
+        } else {
+            salutation = "Hello, there, " + firstName + " " + lastName;
+        }
+        document.getElementById("greeting").innerHTML = salutation;
+    }
+    
+    lang = "";
+    
+    </script>
+            
+</body>
+</html>

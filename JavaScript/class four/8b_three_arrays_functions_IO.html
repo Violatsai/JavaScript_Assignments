@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OoOooOoohhh, that works and is making me hungry...</title>
+    <script>
+        function gimmeFood(someArray){
+            var differentOrders = someArray.length;
+            for ( i=0; i < differentOrders ; i++ ){
+                document.getElementById("output").innerHTML += someArray[i] + "<br>";  // wait, why not = ?
+            }            
+        }
+    </script>
+
+</head>
+<body>
+    <!-- Yeah, remember, you have to DEFINE something before you manipulate it...
+            and with HTML, steps are performed in the order they appear in the script,
+            so getting an element by ID before you've defined what that element is
+            is like asking to deliver a letter, but dropping it on the floor before saying the address -->
+    <p id="output"></p>
+    
+    <script>
+    //  THIS is how you SHOULD define multi-dimensional arrays!
+        var foodOrder = [];
+        foodOrder[0] = ["David","BBQ pork fried rice","Dumplings in hot oil","Ming Beef","Taco Salad"];
+        foodOrder[1] = ["Pablo","Milanesa","Mashed potatoes","Matambre"];
+        foodOrder[2] = ["Luciana","Uvas","Fresas"];
+
+        gimmeFood(foodOrder);
+        
+    </script>
+</body>
+</html>

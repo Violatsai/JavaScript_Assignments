@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Name: Tzu-Chieh(Viola) Tsai -->
+<!-- Section number: A -->
+    <title>Assignment one from Viola Tsai</title>
+</head>
+<body>
+    <script type="text/javascript">
+    // Ask the user for their first name and last name
+        var firstName = prompt("Please enter your first name.");
+        var lastName = prompt("Please enter your last name.");
+        var fullName = firstName + " " + lastName;
+        alert("Nice to meet you " + fullName);
+    // Ask the user for radius
+        var radius = prompt("Please give me the radius of a circle.");
+        const pi = 3.1415;
+        var circleCircumference = pi*2*Number(radius);
+        var circleArea = pi*Number(radius*radius);
+        var sphereSurfaceArea = 4*pi*Number(radius*radius);
+        var sphereVolume = 4/3*pi*Number(radius*radius*radius);
+        document.write("The circle with a radius of " + radius + " would have: ");
+        document.write("<br>a circumference of " + circleCircumference);
+        document.write("<br>an area of " + circleArea);
+        document.write("<br><br>The sphere with a radius of " + radius + " would have: ");
+        document.write("<br>a surface area of " + sphereSurfaceArea);
+        document.write("<br>a volume of " + sphereVolume);
+    // Ask the user for width    
+        var squareWidth = prompt("Please give me the width of a square.");
+        var squareCircumference = 4*Number(squareWidth);
+        var squareArea = Number(squareWidth*squareWidth);
+        var cubeSurfaceArea = 6*squareArea;
+        var cubeVolume = Number(squareWidth*squareWidth*squareWidth);
+        document.write("<br><br>The square with a width of " + squareWidth + " would have: ");
+        document.write("<br>a circumference of " + squareCircumference);
+        document.write("<br>an area of " + squareArea);
+        document.write("<br><br>The cube with a width of " + squareWidth + " would have: ");
+        document.write("<br>a surface area of " + cubeSurfaceArea);
+        document.write("<br>a volume of " + cubeVolume);
+    // calculate what fraction sphere's volume is compare to the cube
+        var fraction = sphereVolume/cubeVolume;
+        document.write("<br><br>Sphere's volume / cube's volume = " + fraction);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Arrays that DO NOT Work cuz THE BOOK IS WRONG!</title>
+</head>
+<body>
+    <script>
+    //  Seriously, I've got nothing except they were thinking of a different language...
+    //  Please IGNORE everything that the book says about notation for multidimensional arrays.
+    //  Look at #5 and beyond for how this SHOULD look...
+        var foodOrder = [];
+        foodOrder[0] = "David";
+        foodOrder[0][0] = "BBQ pork fried rice";
+        foodOrder[0][1] = "Dumplings in hot oil";
+        foodOrder[0][2] = "Ming Beef";
+        foodOrder[0][3] = "Taco Salad";
+        foodOrder[1] = "Pablo";
+        foodOrder[1][0] = "Milanesa";
+        foodOrder[1][1] = "Mashed potatoes";
+        foodOrder[1][2] = "Matambre";
+        foodOrder[2] = "Luciana";
+        foodOrder[2][0] = "Uvas";
+        foodOrder[2][0] = "Fresas";
+
+        alert(foodOrder);
+        
+        alert(foodOrder[0][2]);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I suppose it's time to get Formal</title>
+    <script>
+        function display( first, last, age ){
+            document.getElementById("output").innerHTML = "Your name is " + first + " " + last + " and you are " + age + " years old.";
+        }
+    </script>
+</head>
+<body>
+
+    <form action="#" name="defineUser" >
+        
+    <label for="firstName">First Name: </label>
+    <input type="text" name="firstName" id="firstName" ><br>
+        
+    <label>Last Name: <input type="text" name="lastName" ></label><br>
+        
+    <label>Age: <input type="number" name="age" ></label><br>
+        
+    <input type="submit" value="Submit" onclick="display( firstName.value, lastName.value, age.value )">
+    </form>
+    
+    <p id="output"></p>
+</body>
+</html>

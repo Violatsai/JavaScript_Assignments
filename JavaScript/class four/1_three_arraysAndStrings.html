@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome Arrays and Strings</title>
+</head>
+<body>
+    
+    <script>
+        var disney = new Array ("Mulan", "Moana", "Frozen", "Zootopia", "Aladdin", "Lilo and Stitch", "Little Mermaid", "Monsters Inc", "Beauty and the Beast", "The Incredibles", "Hercules", "Up");
+
+        document.write("Which Disney movies are in your collection?<br>");
+        
+        //  Let's make the output look a little bit nicer and more "for humans," shall we?
+        var output = disney[0];
+        for ( i = 1 ; i < disney.length ; i++){
+            output += ", and " + disney[i];
+        }
+        
+        document.write(output);
+    </script>
+
+</body>
+</html>

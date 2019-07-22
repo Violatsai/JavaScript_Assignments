@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome...er, maybe, something else</title>
+    <script>
+        function spanish(){
+            var newIntroText = "Bienvenido a mi pagina web";
+            document.getElementById("intro").innerHTML = newIntroText;
+            var newCheckText = "Por favor, míralo";
+            document.getElementById("check").innerHTML = newCheckText;
+        }
+
+        function french(){
+            var newIntroText = "Bienvenue sur ma page web";
+            document.getElementById("intro").innerHTML = newIntroText;
+            var newCheckText = "Vérifiez-le, s'il te plaît";
+            document.getElementById("check").innerHTML = newCheckText;
+        }
+
+        function german(){
+            var newIntroText = "That doesn't look like German!";
+            document.getElementById("intro").innerHTML = newIntroText;
+            var newCheckText = "If only someone could help me localize this...";
+            document.getElementById("check").innerHTML = newCheckText;
+        }
+
+        window.onload = function(){
+            document.getElementById("es").onclick = spanish;
+            document.getElementById("fr").onclick = french;
+            document.getElementById("de").onclick = german;
+        }
+
+    </script>
+</head>
+<body>
+    <div id="here">
+        <p id="intro">Welcome to my web page</p>
+        <p id="check">Please, check it out</p> 
+        <input id="en" value="English" type="button" />
+        <input id="es" value="Español" type="button" />
+        <input id="fr" value="Français" type="button" />
+        <input id="de" value="Deutsch" type="button" />
+        <!--  One of these buttons is not like the others... -->
+    </div>
+    <script>
+    </script>
+
+</body>
+</html>

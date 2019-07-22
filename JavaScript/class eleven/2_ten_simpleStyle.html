@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>I'm stylish...</title>
+    <style>
+        span{
+            font-size: 18pts;
+            font-family: arial, helvetica, sans-serif;
+            padding: 10px;
+        }
+    </style>
+    
+    <script>
+        function toggle(){
+            var myElement = document.getElementById("toggleMe");
+            if ( myElement.style.backgroundColor == 'blue'){
+                myElement.style.backgroundColor = 'red';
+                myElement.style.color = 'black';
+            } else {
+                myElement.style.backgroundColor = 'blue';
+                myElement.style.color = 'yellow';
+            }
+        }
+        // when the window is loading, execute this function
+        // Inside a headless function, you won't need parenthesis after the function you call
+        window.onload = function(){
+            document.getElementById("toggleButton").onclick = toggle;
+        }
+    </script>
+</head>
+<body>
+    <span id="toggleMe">Welcome to my stylish website...!<br><br>
+    I could have many, many lines of text here or just one.<br><br>
+    It doesn't really make a difference...!</span><br><br>
+    <input type="button" id="toggleButton" value="Toggle the Colors!">
+</body>
+</html>

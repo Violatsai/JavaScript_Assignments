@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Name: Tzu-Chieh(Viola) Tsai -->
+<!-- Section number: A -->
+    <script>
+    function stringToArray(string){
+        
+        var arrayOfStrings = string.split(" ");
+        
+        //document.getElementById("output").innerHTML = "And I'm winding up with:<br>" + arrayOfStrings;
+        
+        findLongestWord(arrayOfStrings);
+    }
+
+    function findLongestWord(array){
+        output="";
+        var longest = 0;
+        var longestIndex = 0;
+        for (i=0;i<array.length;i++){
+            output = output + array[i] + "<br>";
+            if ( array[i].length > longest ){
+                    longest = array[i].length;
+                    longestIndex = i;
+        }
+        }
+        noLongerThanTheLongestWord(array, longest);
+    }
+    
+    function noLongerThanTheLongestWord(array, longest){ 
+        output= array[0];
+        testString =array[0];
+        for(i=1; i<array.length;i++){
+            testString = testString + " " + array[i];
+            if (testString.length < longest){
+                output = output + " " + array[i];
+            }
+            if(testString.length>=longest){
+                output = output + "<br>" + array[i] ;
+                testString =array[i];
+            }
+            }
+        document.getElementById("output").innerHTML = output 
+    }
+    </script>
+</head>
+
+<body>
+<p id="instructions">This program wraps your text:</p>
+<p>Enter Text: <input id="input" value="Enter text here." size=50></p>
+<button onclick="stringToArray(input.value)">Wrap Me</button>
+<p id="output"></p>
+</body>
+</html>

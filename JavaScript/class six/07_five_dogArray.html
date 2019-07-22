@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Object of our Attention is Humanity's Best Friend</title>
+    <script>
+        function arrayContents( someArray ){
+            var output = "";
+            for ( i=0 ;  i < someArray.length ; i++ ){
+                output += someArray[i] + "<br>";
+            }
+            document.getElementById("yourPooch").innerHTML = output;
+        }
+        
+    </script>
+</head>    
+    
+<body>
+    
+    <h2>Let's talk about your pooch...</h2>
+    <p id="yourPooch"></p>
+    <button onclick="arrayContents(myPooch)">Tell me about your dog!</button>
+    <button onclick="arrayContents(myPooch[0])">What the Name?</button>
+    <button onclick="arrayContents(myPooch[3])">What Color?</button>
+    <button onclick="arrayContents(myPooch[4])">How Old?</button>
+
+    <script>
+        //  Creating an array to keep track of my pooch's attributes
+        //  0 is for the dog's name
+        //  1 is for the dog's breed
+        //  2 is for the dog's size
+        //  3 is for the dog's color
+        //  4 is for the dog's age
+        //  5 is for the dog's training
+        var myPooch = ["Brody", "Pitbull", "85 lbs", "White with brown spots", "9 and a half years", "Basic voice commands"]
+        
+    </script>
+
+</body>
+</html>

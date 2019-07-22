@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Name: Tzu-Chieh(Viola) Tsai -->
+<!-- Section number: A -->
+    <title>This is the extra credit</title>
+</head>
+
+<body>
+    <script>
+        var number = "Bob";
+        var factor = 1;
+        var output = "1";
+        
+        while (isNaN(number)){
+            number = prompt("Gimme a number");
+        }
+        for (i=2; i <= number; i++){
+            while (number % i == 0){
+                number = number / i;
+                if (factor != i){
+                    output = output +"\n"+i.toString();
+                }else{
+                    output = output +" "+i.toString();
+                }
+            factor = i;
+            }
+        }
+        alert(output);
+    
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>But why is this so dysfunctional?!?</title>
+    <script>
+        function gimmeFood(someArray){
+            var differentOrders = someArray.length;
+            for ( i=0; i < differentOrders ; i++ ){
+                document.getElementById("output").innerHTML += someArray[i] + "<br>";  // wait, why not = ?
+//                The following line is a good test to figure out why nothing is appearing.
+//                Can you figure out what's wrong here?
+//                document.getElementById("output").innerHTML = "hello";
+            }            
+        }
+    </script>
+
+</head>
+<body>
+    <script>
+    //  THIS is how you SHOULD define multi-dimensional arrays!
+        var foodOrder = [];
+        foodOrder[0] = ["David","BBQ pork fried rice","Dumplings in hot oil","Ming Beef","Taco Salad"];
+        foodOrder[1] = ["Pablo","Milanesa","Mashed potatoes","Matambre"];
+        foodOrder[2] = ["Luciana","Uvas","Fresas"];
+
+        gimmeFood(foodOrder);
+        
+    </script>
+    <p id="output"></p>
+</body>
+</html>
